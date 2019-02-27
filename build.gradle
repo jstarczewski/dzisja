@@ -30,6 +30,6 @@ task clean(type: Delete) {
 ext {
 
     //Dependency Injection
-    daggerVersion = "2.16"
+    daggerVersion = "2.17"
 
 }
