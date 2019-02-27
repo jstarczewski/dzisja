@@ -1,4 +1,4 @@
-package pl.apkabizness.com.dzisja.di
+package com.clakestudio.pc.dzisja.di
 
 import android.app.Activity
 import android.app.Application
@@ -9,13 +9,13 @@ import android.support.v4.app.FragmentManager
 import dagger.android.AndroidInjection
 import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.HasSupportFragmentInjector
-import pl.apkabizness.com.dzisja.DzisjaApp
+import com.clakestudio.pc.dzisja.DzisjaApp
 
 object AppInjector {
 
     fun init(dzisjaApp: DzisjaApp) {
 
-        DaggerAppComponent.builder().application(dzisjaApp).build().inject(dzisjaApp)
+        DaggerAppCommponent.builder().application(dzisjaApp).build().inject(dzisjaApp)
         dzisjaApp.registerActivityLifecycleCallbacks(object : Application.ActivityLifecycleCallbacks {
 
             override fun onActivityPaused(activity: Activity?) {

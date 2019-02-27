@@ -1,4 +1,4 @@
-package pl.apkabizness.com.dzisja
+package com.clakestudio.pc.dzisja
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("pl.apkabizness.com.dzisja", appContext.packageName)
+        assertEquals("com.clakestudio.pc.dzisja", appContext.packageName)
     }
 }

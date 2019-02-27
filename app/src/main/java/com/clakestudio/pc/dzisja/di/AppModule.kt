@@ -1,4 +1,4 @@
-package pl.apkabizness.com.dzisja.di
+package com.clakestudio.pc.dzisja.di
 
 import dagger.Module
 

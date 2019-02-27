@@ -1,10 +1,11 @@
-package pl.apkabizness.com.dzisja
+package com.clakestudio.pc.dzisja
 
 import android.app.Activity
 import android.app.Application
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
+import com.clakestudio.pc.dzisja.di.AppInjector
 import javax.inject.Inject
 
 class DzisjaApp : Application(), HasActivityInjector {
@@ -14,8 +15,7 @@ class DzisjaApp : Application(), HasActivityInjector {
 
     override fun onCreate() {
         super.onCreate()
-        // Gonna be implemented
-        //AppInjector.init(this)
+        AppInjector.init(this)
     }
 
     override fun activityInjector(): AndroidInjector<Activity> = dispatchingAndroidInjector

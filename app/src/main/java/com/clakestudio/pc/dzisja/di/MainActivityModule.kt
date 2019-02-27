@@ -1,8 +1,8 @@
-package pl.apkabizness.com.dzisja.di
+package com.clakestudio.pc.dzisja.di
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import pl.apkabizness.com.dzisja.MainActivity
+import com.clakestudio.pc.dzisja.MainActivity
 
 @Module
 abstract class MainActivityModule {

@@ -1,10 +1,10 @@
-package pl.apkabizness.com.dzisja.di
+package com.clakestudio.pc.dzisja.di
 
 import android.app.Application
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
-import pl.apkabizness.com.dzisja.DzisjaApp
+import com.clakestudio.pc.dzisja.DzisjaApp
 import javax.inject.Singleton
 
 @Singleton

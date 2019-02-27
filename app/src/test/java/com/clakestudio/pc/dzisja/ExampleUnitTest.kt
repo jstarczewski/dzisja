@@ -1,4 +1,4 @@
-package pl.apkabizness.com.dzisja
+package com.clakestudio.pc.dzisja
 
 import org.junit.Test
 
