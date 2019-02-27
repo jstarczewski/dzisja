@@ -18,6 +18,6 @@ class DzisjaApp : Application(), HasActivityInjector {
         AppInjector.init(this)
     }
 
-    override fun activityInjector(): AndroidInjector<Activity> = dispatchingAndroidInjector
+    override fun activityInjector() = dispatchingAndroidInjector
 
 }

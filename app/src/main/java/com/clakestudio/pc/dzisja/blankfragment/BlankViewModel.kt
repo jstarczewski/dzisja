@@ -1,6 +1,7 @@
 package com.clakestudio.pc.dzisja.blankfragment
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
+import javax.inject.Inject
 
-class BlankViewModel : ViewModel() {
+class BlankViewModel @Inject constructor() : ViewModel() {
 }

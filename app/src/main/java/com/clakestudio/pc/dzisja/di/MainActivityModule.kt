@@ -4,6 +4,8 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import com.clakestudio.pc.dzisja.MainActivity
 
+
+@Suppress("unused")
 @Module
 abstract class MainActivityModule {
 

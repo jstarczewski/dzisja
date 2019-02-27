@@ -1,16 +1,16 @@
 
 package com.clakestudio.pc.dzisja.blankfragment
 
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProvider
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.clakestudio.pc.dzisja.R
 
-import pl.apkabizness.com.dzisja.R
 import com.clakestudio.pc.dzisja.di.Injectable
 import javax.inject.Inject
 
@@ -28,7 +28,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  *
  */
-class BlankFragment : Fragment(), Injectable {
+class BlankFragment : androidx.fragment.app.Fragment(), Injectable {
 
     @Inject
     lateinit var viemodelFactory: ViewModelProvider.Factory

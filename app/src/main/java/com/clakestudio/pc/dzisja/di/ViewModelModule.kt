@@ -1,10 +1,12 @@
 package com.clakestudio.pc.dzisja.di
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 import com.clakestudio.pc.dzisja.blankfragment.BlankViewModel
+import com.clakestudio.pc.dzisja.viewmodel.DzisjaViewModelFactory
 
 @Module
 abstract class ViewModelModule {
@@ -18,4 +20,6 @@ abstract class ViewModelModule {
     @ViewModelKey(BlankViewModel::class)
     abstract fun bindBlankViewModel(blankViewModel: BlankViewModel): ViewModel
 
+    @Binds
+    abstract fun bindViewModelFactory(factory: DzisjaViewModelFactory): ViewModelProvider.Factory
 }
