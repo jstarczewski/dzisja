@@ -37,4 +37,9 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
     kapt  "com.google.dagger:dagger-android-support:$rootProject.daggerVersion"
+
+    //Navigation
+    implementation "android.arch.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"
+    implementation "android.arch.navigation:navigation-ui-ktx:$rootProject.navigationVersion"
+
 }

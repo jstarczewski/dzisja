@@ -1,4 +1,3 @@
-
 package com.clakestudio.pc.dzisja.blankfragment
 
 import androidx.lifecycle.ViewModelProvider
@@ -33,19 +32,11 @@ class BlankFragment : androidx.fragment.app.Fragment(), Injectable {
     @Inject
     lateinit var viemodelFactory: ViewModelProvider.Factory
 
-    lateinit var blankViewModel : BlankViewModel
+    lateinit var blankViewModel: BlankViewModel
 
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-    private var listener: OnFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
@@ -58,21 +49,14 @@ class BlankFragment : androidx.fragment.app.Fragment(), Injectable {
 
     // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {
-        listener?.onFragmentInteraction(uri)
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
-            listener = context
-        } else {
-            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
-        }
     }
 
     override fun onDetach() {
         super.onDetach()
-        listener = null
     }
 
     /**
@@ -86,11 +70,7 @@ class BlankFragment : androidx.fragment.app.Fragment(), Injectable {
      * (http://developer.android.com/training/basics/fragments/communicating.html)
      * for more information.
      */
-    interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
-    }
-
+/*
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -104,10 +84,6 @@ class BlankFragment : androidx.fragment.app.Fragment(), Injectable {
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             BlankFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+
+    }*/
 }
