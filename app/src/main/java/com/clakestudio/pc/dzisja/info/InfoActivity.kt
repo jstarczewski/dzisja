@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.clakestudio.pc.dzisja.R
 import com.clakestudio.pc.dzisja.info.fragments.SlidingFragment
+import com.clakestudio.pc.dzisja.info.fragments.SlidingFragmentInfo
 
 private const val PAGE_NUM = 4
 
@@ -28,7 +29,17 @@ class InfoActivity : FragmentActivity() {
 
     private inner class ScreenSlidePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
-        override fun getItem(position: Int): Fragment = SlidingFragment()
+        override fun getItem(position: Int): Fragment {
+            return when(position) {
+                0 -> SlidingFragment()
+                1 -> SlidingFragmentInfo()
+                2 -> SlidingFragment()
+                3 -> SlidingFragmentInfo()
+                4 -> SlidingFragmentInfo()
+                else -> SlidingFragment()
+            }
+        }
+
 
         override fun getCount(): Int = PAGE_NUM
 
