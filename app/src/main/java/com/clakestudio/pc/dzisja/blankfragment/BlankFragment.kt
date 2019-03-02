@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModelProvider
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import android.view.ViewGroup
 import com.clakestudio.pc.dzisja.R
 
 import com.clakestudio.pc.dzisja.di.Injectable
+import com.google.android.gms.location.LocationServices
 import javax.inject.Inject
 
 class BlankFragment : androidx.fragment.app.Fragment(), Injectable {
@@ -31,6 +33,11 @@ class BlankFragment : androidx.fragment.app.Fragment(), Injectable {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_blank, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
     }
 
     fun onButtonPressed(uri: Uri) {
