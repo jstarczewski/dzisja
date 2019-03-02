@@ -1,11 +1,11 @@
-package com.clakestudio.pc.dzisja.util
+package com.clakestudio.pc.dzisja.ui.splash
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.clakestudio.pc.dzisja.MainActivity
 import com.clakestudio.pc.dzisja.R
-import com.clakestudio.pc.dzisja.info.InfoActivity
+import com.clakestudio.pc.dzisja.ui.info.InfoActivity
+import com.clakestudio.pc.dzisja.util.SharedPreferencesProvider
 import com.clakestudio.pc.dzisja.util.SharedPreferencesProvider.get
 
 class SplashActivity : AppCompatActivity() {

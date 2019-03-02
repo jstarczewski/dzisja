@@ -1,4 +1,4 @@
-package com.clakestudio.pc.dzisja.info
+package com.clakestudio.pc.dzisja.ui.info
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,8 +7,8 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.clakestudio.pc.dzisja.R
-import com.clakestudio.pc.dzisja.info.fragments.SlidingFragment
-import com.clakestudio.pc.dzisja.info.fragments.SlidingFragmentInfo
+import com.clakestudio.pc.dzisja.ui.info.fragments.SlidingFragment
+import com.clakestudio.pc.dzisja.ui.info.fragments.SlidingFragmentInfo
 
 private const val PAGE_NUM = 4
 

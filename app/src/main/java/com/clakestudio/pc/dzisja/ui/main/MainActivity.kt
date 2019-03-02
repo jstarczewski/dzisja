@@ -1,8 +1,9 @@
-package com.clakestudio.pc.dzisja
+package com.clakestudio.pc.dzisja.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.clakestudio.pc.dzisja.R
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
