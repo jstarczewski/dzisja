@@ -4,9 +4,13 @@
 	
 	<data>
 		
+		<import type="androidx.lifecycle.LiveData" />
+		
+		<import type="java.util.ArrayList" />
+		
 		<variable
-			name="viewmodel"
-			type="com.clakestudio.pc.dzisja.ui.main.days.DaysViewModel" />
+			name="days"
+			type="LiveData&lt;ArrayList&lt;String>>" />
 	</data>
 	
 	<androidx.constraintlayout.widget.ConstraintLayout
@@ -31,11 +35,11 @@
 			app:srcCompat="@drawable/topcorner" />
 		
 		<androidx.recyclerview.widget.RecyclerView
+			android:id="@+id/rvDays"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_margin="16dp"
-			android:id="@+id/rvDays"
-			app:days="@{viewmodel.days}"
+			app:days="@{days}"
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"

@@ -6,10 +6,17 @@ import javax.inject.Inject
 
 class DaysViewModel @Inject constructor() : ViewModel() {
 
-    var days : MutableLiveData<ArrayList<String>> = MutableLiveData<ArrayList<String>>()
+    var days: MutableLiveData<ArrayList<String>> = MutableLiveData<ArrayList<String>>()
 
     // Testi init
-    fun init() = days.value!!.addAll(listOf("One", "Two", "Three", "Four"))
+    fun init() {
+        days.value = ArrayList<String>()
+        days.value!!.add("one")
+        days.value!!.add("two")
+        days.value!!.add("three")
+        days.value!!.add("four")
+        days.value!!.add("five")
+    }
 
 
 }
