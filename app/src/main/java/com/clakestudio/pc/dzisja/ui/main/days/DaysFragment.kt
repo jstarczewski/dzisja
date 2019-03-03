@@ -6,23 +6,31 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.clakestudio.pc.dzisja.R
 import com.clakestudio.pc.dzisja.di.Injectable
 import javax.inject.Inject
 
 class DaysFragment : Fragment(), Injectable {
 
     @Inject
-    lateinit var viewmodelFactory : ViewModelProvider.Factory
+    lateinit var viewmodelFactory: ViewModelProvider.Factory
 
     lateinit var DaysViewModel: DaysViewModel
 
+    private lateinit var binding: com.clakestudio.pc.dzisja.databinding.FragmentDaysBinding
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_days, container, false)
+        binding = com.clakestudio.pc.dzisja.databinding.FragmentDaysBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }
+
+    fun setupRecyclerView() {
+
+
+    }
+
 }
