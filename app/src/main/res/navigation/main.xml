@@ -2,8 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main"
-            app:startDestination="@id/blankFragment">
-
-    <fragment android:id="@+id/blankFragment" android:name="com.clakestudio.pc.dzisja.blankfragment.BlankFragment"
-              android:label="fragment_blank" tools:layout="@layout/fragment_blank"/>
+            app:startDestination="@id/daysFragment">
+    <fragment android:id="@+id/daysFragment" android:name="com.clakestudio.pc.dzisja.ui.main.days.DaysFragment"
+              android:label="DaysFragment"/>
 </navigation>

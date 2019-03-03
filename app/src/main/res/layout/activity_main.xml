@@ -8,7 +8,7 @@
         android:layout_height="match_parent">
 
     <fragment
-            android:id="@+id/blankFragment"
+            android:id="@+id/daysFragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_height="match_parent"
             app:navGraph="@navigation/main"
