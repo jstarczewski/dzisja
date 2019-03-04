@@ -10,8 +10,8 @@
 		android:orientation="vertical">
 		
 		<ImageView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
+			android:layout_width="64dp"
+			android:layout_height="64dp"
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
@@ -22,8 +22,8 @@
 			android:id="@+id/tvTitle"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:text="INTRO"
-			android:textSize="30dp"
+			android:text="1"
+			android:textSize="32dp"
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"

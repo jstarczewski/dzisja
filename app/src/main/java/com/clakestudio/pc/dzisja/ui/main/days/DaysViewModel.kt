@@ -11,11 +11,11 @@ class DaysViewModel @Inject constructor() : ViewModel() {
     // Testi init
     fun init() {
         days.value = ArrayList<String>()
-        days.value!!.add("one")
-        days.value!!.add("two")
-        days.value!!.add("three")
-        days.value!!.add("four")
-        days.value!!.add("five")
+        days.value!!.add("1")
+        days.value!!.add("2")
+        days.value!!.add("3")
+        days.value!!.add("4")
+        days.value!!.add("15")
     }
 
 

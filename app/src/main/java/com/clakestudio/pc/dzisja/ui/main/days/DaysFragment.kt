@@ -1,5 +1,6 @@
 package com.clakestudio.pc.dzisja.ui.main.days
 
+import android.graphics.Rect
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,6 +12,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.clakestudio.pc.dzisja.R
 import com.clakestudio.pc.dzisja.adapters.DaysAdapter
 import com.clakestudio.pc.dzisja.di.Injectable
 import kotlinx.android.synthetic.main.fragment_days.*
@@ -47,6 +50,7 @@ class DaysFragment : Fragment(), Injectable {
             adapter = DaysAdapter(arrayListOf<String>())
             layoutManager = GridLayoutManager(activity, 4)
             setHasFixedSize(true)
+
         }
 
     }
