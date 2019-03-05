@@ -47,8 +47,8 @@ class DaysFragment : Fragment(), Injectable {
     private fun setupRecyclerView() {
 
         rvDays.apply {
-            adapter = DaysAdapter(arrayListOf<String>())
-            layoutManager = GridLayoutManager(activity, 4)
+            adapter = DaysAdapter(arrayListOf())
+            layoutManager = GridLayoutManager(activity, 7)
             setHasFixedSize(true)
 
         }

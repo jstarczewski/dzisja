@@ -15,7 +15,12 @@ class DaysViewModel @Inject constructor() : ViewModel() {
         days.value!!.add("2")
         days.value!!.add("3")
         days.value!!.add("4")
-        days.value!!.add("15")
+        days.value!!.add("5")
+        days.value!!.add("6")
+        days.value!!.add("7")
+        days.value!!.add("8")
+        days.value!!.add("9")
+        days.value!!.add("10")
     }
 
 
