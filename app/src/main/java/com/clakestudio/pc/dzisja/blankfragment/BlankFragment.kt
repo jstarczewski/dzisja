@@ -40,9 +40,6 @@ class BlankFragment : androidx.fragment.app.Fragment(), Injectable {
 
     }
 
-    fun onButtonPressed(uri: Uri) {
-    }
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
     }

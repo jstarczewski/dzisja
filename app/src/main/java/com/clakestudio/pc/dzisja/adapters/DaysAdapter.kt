@@ -5,7 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.clakestudio.pc.dzisja.databinding.DayBinding
 
-class DaysAdapter(private var days: ArrayList<String>) : RecyclerView.Adapter<DaysAdapter.DaysViewHolder>() {
+class DaysAdapter(private var days: ArrayList<String>,
+                  private val onDayClickCallback: (Unit) -> Unit) : RecyclerView.Adapter<DaysAdapter.DaysViewHolder>() {
 
     class DaysViewHolder(private val binding: DayBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -18,6 +19,9 @@ class DaysAdapter(private var days: ArrayList<String>) : RecyclerView.Adapter<Da
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DaysViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = com.clakestudio.pc.dzisja.databinding.DayBinding.inflate(inflater, parent, false)
+        binding.root.setOnClickListener {
+            onDayClickCallback.invoke(Unit)
+        }
         return DaysViewHolder(binding)
     }
 

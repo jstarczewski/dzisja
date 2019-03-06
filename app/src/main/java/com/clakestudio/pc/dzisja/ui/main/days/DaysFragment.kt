@@ -11,6 +11,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.clakestudio.pc.dzisja.R
@@ -47,12 +48,17 @@ class DaysFragment : Fragment(), Injectable {
     private fun setupRecyclerView() {
 
         rvDays.apply {
-            adapter = DaysAdapter(arrayListOf())
+            adapter = DaysAdapter(arrayListOf()) {
+                navController().navigateUp()
+            }
             layoutManager = GridLayoutManager(activity, 7)
             setHasFixedSize(false)
 
         }
 
     }
+
+    private fun navController() = findNavController()
+
 
 }

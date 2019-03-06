@@ -4,5 +4,13 @@
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main"
             app:startDestination="@id/daysFragment">
     <fragment android:id="@+id/daysFragment" android:name="com.clakestudio.pc.dzisja.ui.main.days.DaysFragment"
-              android:label="DaysFragment"/>
+              android:label="DaysFragment">
+        <action
+            android:id="@+id/action_daysFragment_to_dayInfoFragment"
+            app:destination="@id/dayInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dayInfoFragment"
+        android:name="com.clakestudio.pc.dzisja.ui.main.dayinfo.DayInfoFragment"
+        android:label="DayInfoFragment" />
 </navigation>
