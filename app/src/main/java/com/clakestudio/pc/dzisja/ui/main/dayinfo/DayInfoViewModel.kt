@@ -1,4 +1,7 @@
 package com.clakestudio.pc.dzisja.ui.main.dayinfo
 
-class DayInfoViewModel {
+import androidx.lifecycle.ViewModel
+import javax.inject.Inject
+
+class DayInfoViewModel @Inject constructor() : ViewModel() {
 }

@@ -49,7 +49,7 @@ class DaysFragment : Fragment(), Injectable {
 
         rvDays.apply {
             adapter = DaysAdapter(arrayListOf()) {
-                navController().navigateUp()
+                navController().navigate(R.id.action_daysFragment_to_dayInfoFragment)
             }
             layoutManager = GridLayoutManager(activity, 7)
             setHasFixedSize(false)
