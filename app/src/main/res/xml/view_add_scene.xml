@@ -17,43 +17,32 @@
 				android:id="@+id/view_add_day"
 				android:layout_width="64dp"
 				android:layout_height="64dp"
-				android:layout_marginStart="8dp"
 				android:text="Button"
 				motion:layout_constraintEnd_toEndOf="parent"
 				motion:layout_constraintBottom_toBottomOf="parent"
 				motion:layout_constraintStart_toStartOf="parent">
-				<CustomAttribute
-					motion:attributeName="BackgroundColor"
-					motion:customColorValue="#D81B60" />
 			</Constraint>
 		</ConstraintSet>
 		
 		<ConstraintSet android:id="@+id/end">
 			<Constraint
 				android:id="@id/view_add_day"
-				android:layout_width="128dp"
-				android:layout_height="128dp"
-				android:layout_marginEnd="8dp"
+				android:layout_width="256dp"
+				android:layout_height="256dp"
 				android:text="Button"
 				motion:layout_constraintBottom_toBottomOf="parent"
 				motion:layout_constraintStart_toStartOf="parent"
 				motion:layout_constraintEnd_toEndOf="parent"
 				motion:layout_constraintTop_toTopOf="parent">
-				<CustomAttribute
-					motion:attributeName="BackgroundColor"
-					motion:customColorValue="#9999FF" />
 			</Constraint>
 		</ConstraintSet>
 		
 		<KeyFrameSet>
 			<KeyAttribute
-				android:rotation="90"
-				android:scaleX="2"
-				android:scaleY="2"
-				motion:framePosition="30"
+				android:scaleX="4"
+				android:scaleY="4"
 				motion:target="@id/view_add_day" />
 			<KeyPosition
-				motion:framePosition="70"
 				motion:keyPositionType="pathRelative"
 				motion:target="@id/view_add_day" />
 		</KeyFrameSet>
