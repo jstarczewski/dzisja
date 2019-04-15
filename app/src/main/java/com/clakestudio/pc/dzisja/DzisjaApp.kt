@@ -2,7 +2,6 @@ package com.clakestudio.pc.dzisja
 
 import android.app.Activity
 import android.app.Application
-import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import com.clakestudio.pc.dzisja.di.AppInjector
