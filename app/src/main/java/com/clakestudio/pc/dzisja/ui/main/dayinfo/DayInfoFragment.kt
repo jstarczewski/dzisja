@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.clakestudio.pc.dzisja.di.Injectable
 import javax.inject.Inject
 
-class DayInfoFragment : Fragment(), Injectable {
+class DayInfoFragment : Fragment(), Injectable, MotionLa {
 
 
     @Inject

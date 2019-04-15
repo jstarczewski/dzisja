@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:motion="http://schemas.android.com/apk/res-auto">
+	
+	<Transition
+		motion:constraintSetEnd="@+id/end"
+		motion:constraintSetStart="@+id/start"
+		motion:duration="3000"
+		motion:interpolator="linear">
+		<OnSwipe
+			motion:dragDirection="dragUp"
+			motion:touchAnchorId="@+id/view_add_day"
+			motion:touchAnchorSide="top" />
+		
+		<ConstraintSet android:id="@+id/start">
+			<Constraint
+				android:id="@+id/view_add_day"
+				android:layout_width="64dp"
+				android:layout_height="64dp"
+				android:layout_marginStart="8dp"
+				android:text="Button"
+				motion:layout_constraintEnd_toEndOf="parent"
+				motion:layout_constraintBottom_toBottomOf="parent"
+				motion:layout_constraintStart_toStartOf="parent">
+				<CustomAttribute
+					motion:attributeName="BackgroundColor"
+					motion:customColorValue="#D81B60" />
+			</Constraint>
+		</ConstraintSet>
+		
+		<ConstraintSet android:id="@+id/end">
+			<Constraint
+				android:id="@id/view_add_day"
+				android:layout_width="128dp"
+				android:layout_height="128dp"
+				android:layout_marginEnd="8dp"
+				android:text="Button"
+				motion:layout_constraintBottom_toBottomOf="parent"
+				motion:layout_constraintStart_toStartOf="parent"
+				motion:layout_constraintEnd_toEndOf="parent"
+				motion:layout_constraintTop_toTopOf="parent">
+				<CustomAttribute
+					motion:attributeName="BackgroundColor"
+					motion:customColorValue="#9999FF" />
+			</Constraint>
+		</ConstraintSet>
+		
+		<KeyFrameSet>
+			<KeyAttribute
+				android:rotation="90"
+				android:scaleX="2"
+				android:scaleY="2"
+				motion:framePosition="30"
+				motion:target="@id/view_add_day" />
+			<KeyPosition
+				motion:framePosition="70"
+				motion:keyPositionType="pathRelative"
+				motion:target="@id/view_add_day" />
+		</KeyFrameSet>
+	</Transition>
+
+
+</MotionScene>
+

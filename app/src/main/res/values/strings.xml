@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Dziś Ja</string>
     <string name="is_first_time">isFirstTime</string>
+	<string name="item">item</string>
 </resources>
