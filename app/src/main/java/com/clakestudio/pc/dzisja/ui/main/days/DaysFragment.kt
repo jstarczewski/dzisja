@@ -28,7 +28,9 @@ class DaysFragment : Fragment(), Injectable {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        daysViewModel = ViewModelProviders.of(this, viewmodelFactory).get(DaysViewModel::class.java)
+        daysViewModel = ViewModelProviders.of(this, viewmodelFactory).get(DaysViewModel::class.java).apply{
+            init()
+        }
     }
 
 
