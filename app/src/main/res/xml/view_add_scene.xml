@@ -15,12 +15,15 @@
 		<ConstraintSet android:id="@+id/start">
 			<Constraint
 				android:id="@+id/view_add_day"
-				android:layout_width="64dp"
+				android:layout_width="128dp"
 				android:layout_height="64dp"
 				android:text="Button"
-				motion:layout_constraintEnd_toEndOf="parent"
 				motion:layout_constraintBottom_toBottomOf="parent"
+				motion:layout_constraintEnd_toEndOf="parent"
 				motion:layout_constraintStart_toStartOf="parent">
+				<CustomAttribute
+					motion:attributeName="Crossfade"
+					motion:customFloatValue="0" />
 			</Constraint>
 		</ConstraintSet>
 		
@@ -28,19 +31,22 @@
 			<Constraint
 				android:id="@id/view_add_day"
 				android:layout_width="256dp"
-				android:layout_height="256dp"
+				android:layout_height="384dp"
 				android:text="Button"
 				motion:layout_constraintBottom_toBottomOf="parent"
-				motion:layout_constraintStart_toStartOf="parent"
 				motion:layout_constraintEnd_toEndOf="parent"
+				motion:layout_constraintStart_toStartOf="parent"
 				motion:layout_constraintTop_toTopOf="parent">
+				<CustomAttribute
+					motion:attributeName="Crossfade"
+					motion:customFloatValue="1" />
 			</Constraint>
 		</ConstraintSet>
 		
 		<KeyFrameSet>
 			<KeyAttribute
-				android:scaleX="4"
-				android:scaleY="4"
+				android:scaleX="2"
+				android:scaleY="8"
 				motion:target="@id/view_add_day" />
 			<KeyPosition
 				motion:keyPositionType="pathRelative"
