@@ -2,4 +2,7 @@
     <string name="app_name">Dziś Ja</string>
     <string name="is_first_time">isFirstTime</string>
 	<string name="item">item</string>
+	<string name="today">Today</string>
+	<string name="days">Days</string>
+	<string name="humor">Humor</string>
 </resources>

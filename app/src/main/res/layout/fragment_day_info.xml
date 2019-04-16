@@ -1,32 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto">
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
 	
 	<androidx.constraintlayout.widget.ConstraintLayout
 		android:id="@+id/constrainternext"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:background="@drawable/rectangle"
+		android:background="@color/design_default_color_primary"
 		android:orientation="vertical">
+		
+		<androidx.constraintlayout.widget.Guideline
+			android:id="@+id/glStart"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			app:layout_constraintGuide_begin="16dp" />
+		
+		<androidx.constraintlayout.widget.Guideline
+			android:id="@+id/glEnd"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			app:layout_constraintGuide_end="16dp" />
+		
+		<androidx.constraintlayout.widget.Guideline
+			android:id="@+id/glBottom"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			app:layout_constraintGuide_end="16dp" />
+		
+		<androidx.constraintlayout.widget.Guideline
+			android:id="@+id/glTop"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			app:layout_constraintGuide_begin="16dp" />
+		
+		
+		<androidx.constraintlayout.widget.Guideline
+			android:id="@+id/glMid"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			app:layout_constraintGuide_percent="0.5" />
+		
+		<!--
+		<TextView
+			android:id="@+id/view_add_day"
+			android:layout_width="256dp"
+			android:layout_height="64dp"
+			android:layout_marginBottom="16dp"
+			android:text="@string/item"
+			android:textSize="18sp"
+			android:background="#FFFFFF"
+			android:gravity="center"
+			app:layout_constraintBottom_toTopOf="@id/iv_angry"
+			app:layout_constraintEnd_toEndOf="@id/glEnd"
+			app:layout_constraintStart_toStartOf="@id/glStart"
+			app:layout_constraintTop_toBottomOf="@id/glMid"
+			app:layout_constraintVertical_chainStyle="packed" />-->
+		
+		<androidx.cardview.widget.CardView
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			app:layout_constraintBottom_toBottomOf="@id/glMid"
+			app:layout_constraintEnd_toEndOf="@id/glEnd"
+			app:cardCornerRadius="16sp"
+			app:layout_constraintStart_toStartOf="@id/glStart"
+			app:layout_constraintTop_toTopOf="@id/glTop">
+			
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_margin="16dp"
+				android:text="hello"
+				android:textSize="48sp" />
+		
+		</androidx.cardview.widget.CardView>
 		
 		<androidx.cardview.widget.CardView
 			android:id="@+id/view_add_day"
 			android:layout_width="256dp"
-			android:layout_height="384dp"
-			android:transitionName="circle"
-			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintTop_toTopOf="parent"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent">
+			android:layout_height="64dp"
+			android:layout_marginBottom="16dp"
+			app:cardCornerRadius="16sp"
+			app:layout_constraintBottom_toTopOf="@id/iv_angry"
+			app:layout_constraintEnd_toEndOf="@id/glEnd"
+			app:layout_constraintStart_toStartOf="@id/glStart"
+			app:layout_constraintTop_toBottomOf="@id/glMid"
+			app:layout_constraintVertical_chainStyle="packed">
 			
-			<EditText
+			<TextView
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_gravity="center"
-				android:hint="@string/item" />
+				android:text="@string/item"
+				android:textSize="18sp" />
 		
 		</androidx.cardview.widget.CardView>
+		
+		
+		<ImageView
+			android:id="@+id/iv_angry"
+			android:layout_width="64dp"
+			android:layout_height="64dp"
+			android:layout_marginTop="32dp"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toStartOf="@id/iv_happy"
+			app:layout_constraintHorizontal_chainStyle="spread"
+			app:layout_constraintStart_toStartOf="@id/glStart"
+			app:layout_constraintTop_toBottomOf="@id/view_add_day"
+			app:srcCompat="@drawable/emoticon_angry_outline" />
+		
+		<ImageView
+			android:id="@+id/iv_happy"
+			android:layout_width="64dp"
+			android:layout_height="64dp"
+			app:layout_constraintBottom_toBottomOf="@id/iv_angry"
+			app:layout_constraintEnd_toStartOf="@id/iv_neutral"
+			app:layout_constraintStart_toEndOf="@id/iv_angry"
+			app:layout_constraintTop_toTopOf="@id/iv_angry"
+			app:srcCompat="@drawable/emoticon_happy_outline" />
+		
+		<ImageView
+			android:id="@+id/iv_neutral"
+			android:layout_width="64dp"
+			android:layout_height="64dp"
+			app:layout_constraintBottom_toBottomOf="@id/iv_happy"
+			app:layout_constraintEnd_toStartOf="@id/iv_sad"
+			app:layout_constraintHorizontal_chainStyle="packed"
+			app:layout_constraintStart_toEndOf="@id/iv_happy"
+			app:layout_constraintTop_toTopOf="@id/iv_happy"
+			app:srcCompat="@drawable/emoticon_neutral_outline" />
+		
+		<ImageView
+			android:id="@+id/iv_sad"
+			android:layout_width="64dp"
+			android:layout_height="64dp"
+			app:layout_constraintBottom_toBottomOf="@id/iv_neutral"
+			app:layout_constraintEnd_toStartOf="@id/iv_outline"
+			app:layout_constraintStart_toEndOf="@id/iv_neutral"
+			app:layout_constraintTop_toTopOf="@id/iv_neutral"
+			app:srcCompat="@drawable/emoticon_sad_outline" />
+		
+		<ImageView
+			android:id="@+id/iv_outline"
+			android:layout_width="64dp"
+			android:layout_height="64dp"
+			app:layout_constraintBottom_toBottomOf="@id/iv_sad"
+			app:layout_constraintEnd_toEndOf="@id/glEnd"
+			app:layout_constraintStart_toEndOf="@id/iv_sad"
+			app:layout_constraintTop_toTopOf="@id/iv_sad"
+			app:srcCompat="@drawable/emoticon_outline" />
+	
 	
 	</androidx.constraintlayout.widget.ConstraintLayout>
 
