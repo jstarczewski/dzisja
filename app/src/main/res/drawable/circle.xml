@@ -7,7 +7,7 @@
 	
 	<path
 		android:name="circle"
-		android:fillColor="@color/colorAccent"
+		android:fillColor="@color/colorPrimaryDark"
 		android:pathData="
             M 50,150
             A50,50 0 3,3 150,50

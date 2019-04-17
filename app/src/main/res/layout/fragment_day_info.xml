@@ -8,7 +8,7 @@
 		android:id="@+id/constrainternext"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:background="@color/design_default_color_primary"
+		android:background="@color/colorSecondary"
 		android:orientation="vertical">
 		
 		<androidx.constraintlayout.widget.Guideline
@@ -47,73 +47,16 @@
 			android:orientation="horizontal"
 			app:layout_constraintGuide_percent="0.5" />
 		
-		<!--
-		<TextView
-			android:id="@+id/view_add_day"
-			android:layout_width="256dp"
-			android:layout_height="64dp"
-			android:layout_marginBottom="16dp"
-			android:text="@string/item"
-			android:textSize="18sp"
-			android:background="#FFFFFF"
-			android:gravity="center"
-			app:layout_constraintBottom_toTopOf="@id/iv_angry"
-			app:layout_constraintEnd_toEndOf="@id/glEnd"
-			app:layout_constraintStart_toStartOf="@id/glStart"
-			app:layout_constraintTop_toBottomOf="@id/glMid"
-			app:layout_constraintVertical_chainStyle="packed" />-->
-		
-		<androidx.cardview.widget.CardView
-			android:layout_width="0dp"
-			android:layout_height="0dp"
-			app:layout_constraintBottom_toBottomOf="@id/glMid"
-			app:layout_constraintEnd_toEndOf="@id/glEnd"
-			app:cardCornerRadius="16sp"
-			app:layout_constraintStart_toStartOf="@id/glStart"
-			app:layout_constraintTop_toTopOf="@id/glTop">
-			
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_gravity="center"
-				android:layout_margin="16dp"
-				android:text="hello"
-				android:textSize="48sp" />
-		
-		</androidx.cardview.widget.CardView>
-		
-		<androidx.cardview.widget.CardView
-			android:id="@+id/view_add_day"
-			android:layout_width="256dp"
-			android:layout_height="64dp"
-			android:layout_marginBottom="16dp"
-			app:cardCornerRadius="16sp"
-			app:layout_constraintBottom_toTopOf="@id/iv_angry"
-			app:layout_constraintEnd_toEndOf="@id/glEnd"
-			app:layout_constraintStart_toStartOf="@id/glStart"
-			app:layout_constraintTop_toBottomOf="@id/glMid"
-			app:layout_constraintVertical_chainStyle="packed">
-			
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_gravity="center"
-				android:text="@string/item"
-				android:textSize="18sp" />
-		
-		</androidx.cardview.widget.CardView>
-		
-		
 		<ImageView
 			android:id="@+id/iv_angry"
 			android:layout_width="64dp"
-			android:layout_height="64dp"
-			android:layout_marginTop="32dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:layout_marginBottom="16dp"
 			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintEnd_toStartOf="@id/iv_happy"
 			app:layout_constraintHorizontal_chainStyle="spread"
-			app:layout_constraintStart_toStartOf="@id/glStart"
-			app:layout_constraintTop_toBottomOf="@id/view_add_day"
+			app:layout_constraintStart_toStartOf="@id/cv_day"
+			app:layout_constraintTop_toTopOf="parent"
 			app:srcCompat="@drawable/emoticon_angry_outline" />
 		
 		<ImageView
@@ -152,12 +95,214 @@
 			android:layout_width="64dp"
 			android:layout_height="64dp"
 			app:layout_constraintBottom_toBottomOf="@id/iv_sad"
-			app:layout_constraintEnd_toEndOf="@id/glEnd"
+			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toEndOf="@id/iv_sad"
 			app:layout_constraintTop_toTopOf="@id/iv_sad"
 			app:srcCompat="@drawable/emoticon_outline" />
-	
-	
+		
+		<androidx.cardview.widget.CardView
+			android:id="@+id/cv_day"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_margin="16dp"
+			app:cardCornerRadius="16dp"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/iv_angry">
+			
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent">
+				
+				
+				<TextView
+					android:id="@+id/day_number"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:text="Dzien 1"
+					android:textAlignment="textStart"
+					android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+					android:layout_margin="16dp"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintVertical_chainStyle="packed"
+					tools:text="Dzień 1" />
+				
+				
+				<TextView
+					android:id="@+id/tv_noet"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_margin="16dp"
+					android:text="Co sie dzisiaj wydarzyło?"
+					android:textAlignment="textStart"
+					android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toBottomOf="@id/day_number"/>
+			
+			
+			</androidx.constraintlayout.widget.ConstraintLayout>
+		
+		
+		</androidx.cardview.widget.CardView>
+		
+		
+		<!--
+			<androidx.cardview.widget.CardView
+				android:id="@+id/cv_day"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_margin="16dp"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent">
+				
+				<androidx.constraintlayout.widget.ConstraintLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
+					
+					
+					<TextView
+						android:id="@+id/day_number"
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:textAlignment="textStart"
+						android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintStart_toStartOf="parent"
+						app:layout_constraintTop_toTopOf="parent"
+						app:layout_constraintVertical_chainStyle="packed"
+						android:text="Dzien 1"
+						tools:text="Dzień 1" />
+					
+					
+					<TextView
+						android:id="@+id/tvDate"
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_margin="16dp"
+						android:textAlignment="textStart"
+						android:textSize="24sp"
+						android:text="24.04.2019"
+						app:layout_constraintStart_toStartOf="parent"
+						app:layout_constraintBottom_toBottomOf="parent"
+						app:layout_constraintTop_toBottomOf="@id/day_number"
+						tools:text="24.04.2019" />
+				
+				
+				</androidx.constraintlayout.widget.ConstraintLayout>
+			
+			
+			</androidx.cardview.widget.CardView>
+			
+			<TextView
+				android:id="@+id/view_add_day"
+				android:layout_width="256dp"
+				android:layout_height="64dp"
+				android:layout_marginBottom="16dp"
+				android:text="@string/item"
+				android:textSize="18sp"
+				android:background="#FFFFFF"
+				android:gravity="center"
+				app:layout_constraintBottom_toTopOf="@id/iv_angry"
+				app:layout_constraintEnd_toEndOf="@id/glEnd"
+				app:layout_constraintStart_toStartOf="@id/glStart"
+				app:layout_constraintTop_toBottomOf="@id/glMid"
+				app:layout_constraintVertical_chainStyle="packed" /
+			
+			<androidx.appcompat.widget.AppCompatImageView
+				android:id="@+id/iv_cloud"
+				android:layout_width="256dp"
+				android:layout_height="192dp"
+				android:layout_marginStart="8dp"
+				android:layout_marginTop="16dp"
+				android:layout_marginEnd="8dp"
+				app:layout_constraintBottom_toTopOf="@id/iv_angry"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:srcCompat="@drawable/ic_cloud_2" />
+			
+			<ImageView
+				android:id="@+id/iv_angry"
+				android:layout_width="64dp"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:layout_marginBottom="16dp"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toStartOf="@id/iv_happy"
+				app:layout_constraintHorizontal_chainStyle="spread"
+				app:layout_constraintStart_toStartOf="@id/view_add_day"
+				app:layout_constraintTop_toBottomOf="@id/iv_cloud"
+				app:srcCompat="@drawable/emoticon_angry_outline" />
+			
+			<ImageView
+				android:id="@+id/iv_happy"
+				android:layout_width="64dp"
+				android:layout_height="64dp"
+				app:layout_constraintBottom_toBottomOf="@id/iv_angry"
+				app:layout_constraintEnd_toStartOf="@id/iv_neutral"
+				app:layout_constraintStart_toEndOf="@id/iv_angry"
+				app:layout_constraintTop_toTopOf="@id/iv_angry"
+				app:srcCompat="@drawable/emoticon_happy_outline" />
+			
+			<ImageView
+				android:id="@+id/iv_neutral"
+				android:layout_width="64dp"
+				android:layout_height="64dp"
+				app:layout_constraintBottom_toBottomOf="@id/iv_happy"
+				app:layout_constraintEnd_toStartOf="@id/iv_sad"
+				app:layout_constraintHorizontal_chainStyle="packed"
+				app:layout_constraintStart_toEndOf="@id/iv_happy"
+				app:layout_constraintTop_toTopOf="@id/iv_happy"
+				app:srcCompat="@drawable/emoticon_neutral_outline" />
+			
+			<ImageView
+				android:id="@+id/iv_sad"
+				android:layout_width="64dp"
+				android:layout_height="64dp"
+				app:layout_constraintBottom_toBottomOf="@id/iv_neutral"
+				app:layout_constraintEnd_toStartOf="@id/iv_outline"
+				app:layout_constraintStart_toEndOf="@id/iv_neutral"
+				app:layout_constraintTop_toTopOf="@id/iv_neutral"
+				app:srcCompat="@drawable/emoticon_sad_outline" />
+			
+			<ImageView
+				android:id="@+id/iv_outline"
+				android:layout_width="64dp"
+				android:layout_height="64dp"
+				app:layout_constraintBottom_toBottomOf="@id/iv_sad"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toEndOf="@id/iv_sad"
+				app:layout_constraintTop_toTopOf="@id/iv_sad"
+				app:srcCompat="@drawable/emoticon_outline" />
+			
+			
+			<androidx.cardview.widget.CardView
+				android:id="@+id/view_add_day"
+				android:layout_width="0dp"
+				android:layout_height="64dp"
+				android:layout_marginTop="16dp"
+				android:layout_marginBottom="16dp"
+				android:elevation="4dp"
+				app:layout_constraintBottom_toBottomOf="@id/glBottom"
+				app:layout_constraintEnd_toEndOf="@id/glEnd"
+				app:layout_constraintStart_toStartOf="@id/glStart"
+				app:layout_constraintTop_toBottomOf="@id/iv_angry"
+				app:layout_constraintVertical_chainStyle="packed">
+				
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:text="Zapisz jakas dzisiejsza myśl"
+					android:textSize="18sp" />
+			
+			</androidx.cardview.widget.CardView>
+		
+		-->
 	</androidx.constraintlayout.widget.ConstraintLayout>
 
 
