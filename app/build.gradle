@@ -72,4 +72,7 @@ dependencies {
     implementation "android.arch.navigation:navigation-ui-ktx:$rootProject.navigationVersion"
     implementation "com.google.android.gms:play-services-location:16.0.0"
 
+    //Charts
+    implementation "com.github.PhilJay:MPAndroidChart:v3.1.0"
+
 }

@@ -4,12 +4,10 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools">
 	
+	
 	<androidx.constraintlayout.widget.ConstraintLayout
-		android:id="@+id/constrainternext"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:background="@color/colorSecondary"
-		android:orientation="vertical">
+		android:layout_height="match_parent">
 		
 		<androidx.constraintlayout.widget.Guideline
 			android:id="@+id/glStart"
@@ -47,68 +45,43 @@
 			android:orientation="horizontal"
 			app:layout_constraintGuide_percent="0.5" />
 		
-		<ImageView
-			android:id="@+id/iv_angry"
-			android:layout_width="64dp"
+		
+		<com.google.android.material.appbar.AppBarLayout
+			android:id="@+id/app_bar"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="8dp"
-			android:layout_marginBottom="16dp"
+			app:layout_constraintTop_toTopOf="parent">
+			
+			<androidx.appcompat.widget.Toolbar
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				app:title="Today">
+			
+			</androidx.appcompat.widget.Toolbar>
+		
+		</com.google.android.material.appbar.AppBarLayout>
+		
+		<com.google.android.material.floatingactionbutton.FloatingActionButton
+			android:id="@+id/fab_add"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
 			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintHorizontal_chainStyle="spread"
-			app:layout_constraintStart_toStartOf="@id/cv_day"
-			app:layout_constraintTop_toTopOf="parent"
-			app:srcCompat="@drawable/emoticon_angry_outline" />
-		
-		<ImageView
-			android:id="@+id/iv_happy"
-			android:layout_width="64dp"
-			android:layout_height="64dp"
-			app:layout_constraintBottom_toBottomOf="@id/iv_angry"
-			app:layout_constraintEnd_toStartOf="@id/iv_neutral"
-			app:layout_constraintStart_toEndOf="@id/iv_angry"
-			app:layout_constraintTop_toTopOf="@id/iv_angry"
-			app:srcCompat="@drawable/emoticon_happy_outline" />
-		
-		<ImageView
-			android:id="@+id/iv_neutral"
-			android:layout_width="64dp"
-			android:layout_height="64dp"
-			app:layout_constraintBottom_toBottomOf="@id/iv_happy"
-			app:layout_constraintEnd_toStartOf="@id/iv_sad"
-			app:layout_constraintHorizontal_chainStyle="packed"
-			app:layout_constraintStart_toEndOf="@id/iv_happy"
-			app:layout_constraintTop_toTopOf="@id/iv_happy"
-			app:srcCompat="@drawable/emoticon_neutral_outline" />
-		
-		<ImageView
-			android:id="@+id/iv_sad"
-			android:layout_width="64dp"
-			android:layout_height="64dp"
-			app:layout_constraintBottom_toBottomOf="@id/iv_neutral"
-			app:layout_constraintEnd_toStartOf="@id/iv_outline"
-			app:layout_constraintStart_toEndOf="@id/iv_neutral"
-			app:layout_constraintTop_toTopOf="@id/iv_neutral"
-			app:srcCompat="@drawable/emoticon_sad_outline" />
-		
-		<ImageView
-			android:id="@+id/iv_outline"
-			android:layout_width="64dp"
-			android:layout_height="64dp"
-			app:layout_constraintBottom_toBottomOf="@id/iv_sad"
 			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toEndOf="@id/iv_sad"
-			app:layout_constraintTop_toTopOf="@id/iv_sad"
-			app:srcCompat="@drawable/emoticon_outline" />
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:srcCompat="@drawable/ic_add_white_24dp" />
+		
 		
 		<androidx.cardview.widget.CardView
 			android:id="@+id/cv_day"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:layout_margin="16dp"
-			app:cardCornerRadius="16dp"
-			app:layout_constraintStart_toStartOf="parent"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
+			app:cardCornerRadius="4dp"
 			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintTop_toBottomOf="@id/iv_angry">
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="@id/glMid">
 			
 			<androidx.constraintlayout.widget.ConstraintLayout
 				android:layout_width="match_parent"
@@ -119,16 +92,16 @@
 					android:id="@+id/day_number"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
+					android:layout_margin="8dp"
+					android:paddingTop="16dp"
 					android:text="Dzien 1"
 					android:textAlignment="textStart"
-					android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-					android:layout_margin="16dp"
+					android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toTopOf="parent"
 					app:layout_constraintVertical_chainStyle="packed"
 					tools:text="Dzień 1" />
-				
 				
 				<TextView
 					android:id="@+id/tv_noet"
@@ -138,171 +111,186 @@
 					android:text="Co sie dzisiaj wydarzyło?"
 					android:textAlignment="textStart"
 					android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+					app:layout_constraintBottom_toTopOf="@id/vDividerMid"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toBottomOf="@id/day_number" />
+				
+				<View
+					android:id="@+id/vDividerMid"
+					android:layout_width="0dp"
+					android:layout_height="1dp"
+					android:background="@color/colorPrimaryLight"
+					app:layout_constraintBottom_toTopOf="@id/tv_greeting"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toBottomOf="@id/tv_noet"
+					tools:visibility="visible" />
+				
+				<TextView
+					android:id="@+id/tv_greeting"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_margin="8dp"
+					android:text="Jak sie dzisiaj czujesz?"
+					android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toBottomOf="@id/vDividerMid"
+					tools:text="Jak sie dzisiaj czujesz?" />
+				
+				<com.google.android.material.floatingactionbutton.FloatingActionButton
+					android:id="@+id/fab_angry"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="16dp"
+					android:layout_marginBottom="16dp"
+					app:fabSize="mini"
 					app:layout_constraintBottom_toBottomOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@id/day_number"/>
+					app:layout_constraintTop_toBottomOf="@id/tv_greeting"
+					app:srcCompat="@drawable/emoticon_angry_outline" />
+				
+				<com.google.android.material.floatingactionbutton.FloatingActionButton
+					android:id="@+id/fab_happy"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:background="@drawable/circle"
+					app:fabSize="mini"
+					app:layout_constraintBottom_toBottomOf="@id/fab_angry"
+					app:layout_constraintEnd_toStartOf="@id/fab_neutral"
+					app:layout_constraintStart_toEndOf="@id/fab_angry"
+					app:layout_constraintTop_toTopOf="@id/fab_angry"
+					app:srcCompat="@drawable/emoticon_happy_outline" />
+				
+				<com.google.android.material.floatingactionbutton.FloatingActionButton
+					android:id="@+id/fab_neutral"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					app:fabSize="mini"
+					app:layout_constraintBottom_toBottomOf="@id/fab_happy"
+					app:layout_constraintEnd_toStartOf="@id/fab_sad"
+					app:layout_constraintHorizontal_chainStyle="packed"
+					app:layout_constraintStart_toEndOf="@id/fab_happy"
+					app:layout_constraintTop_toTopOf="@id/fab_happy"
+					app:srcCompat="@drawable/emoticon_neutral_outline" />
+				
+				<com.google.android.material.floatingactionbutton.FloatingActionButton
+					android:id="@+id/fab_sad"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					app:fabSize="mini"
+					app:layout_constraintBottom_toBottomOf="@id/fab_neutral"
+					app:layout_constraintEnd_toStartOf="@id/fab_outline"
+					app:layout_constraintStart_toEndOf="@id/fab_neutral"
+					app:layout_constraintTop_toTopOf="@id/fab_neutral"
+					app:srcCompat="@drawable/emoticon_sad_outline" />
+				
+				<com.google.android.material.floatingactionbutton.FloatingActionButton
+					android:id="@+id/fab_outline"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					app:fabSize="mini"
+					app:layout_constraintBottom_toBottomOf="@id/fab_sad"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toEndOf="@id/fab_sad"
+					app:layout_constraintTop_toTopOf="@id/fab_sad"
+					app:srcCompat="@drawable/emoticon_outline" />
 			
 			
 			</androidx.constraintlayout.widget.ConstraintLayout>
 		
-		
 		</androidx.cardview.widget.CardView>
-		
-		
 		<!--
-			<androidx.cardview.widget.CardView
-				android:id="@+id/cv_day"
-				android:layout_width="0dp"
-				android:layout_height="wrap_content"
-				android:layout_margin="16dp"
-				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toTopOf="parent">
+		<androidx.cardview.widget.CardView
+			android:id="@+id/cv_feelings"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="8dp"
+			android:layout_marginTop="8dp"
+			android:layout_marginEnd="8dp"
+			app:cardCornerRadius="4dp"
+			app:layout_constraintTop_toBottomOf="@id/cv_day">
+			
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
 				
-				<androidx.constraintlayout.widget.ConstraintLayout
-					android:layout_width="match_parent"
-					android:layout_height="match_parent">
-					
-					
-					<TextView
-						android:id="@+id/day_number"
-						android:layout_width="0dp"
-						android:layout_height="wrap_content"
-						android:textAlignment="textStart"
-						android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
-						app:layout_constraintEnd_toEndOf="parent"
-						app:layout_constraintStart_toStartOf="parent"
-						app:layout_constraintTop_toTopOf="parent"
-						app:layout_constraintVertical_chainStyle="packed"
-						android:text="Dzien 1"
-						tools:text="Dzień 1" />
-					
-					
-					<TextView
-						android:id="@+id/tvDate"
-						android:layout_width="0dp"
-						android:layout_height="wrap_content"
-						android:layout_margin="16dp"
-						android:textAlignment="textStart"
-						android:textSize="24sp"
-						android:text="24.04.2019"
-						app:layout_constraintStart_toStartOf="parent"
-						app:layout_constraintBottom_toBottomOf="parent"
-						app:layout_constraintTop_toBottomOf="@id/day_number"
-						tools:text="24.04.2019" />
-				
-				
-				</androidx.constraintlayout.widget.ConstraintLayout>
-			
-			
-			</androidx.cardview.widget.CardView>
-			
-			<TextView
-				android:id="@+id/view_add_day"
-				android:layout_width="256dp"
-				android:layout_height="64dp"
-				android:layout_marginBottom="16dp"
-				android:text="@string/item"
-				android:textSize="18sp"
-				android:background="#FFFFFF"
-				android:gravity="center"
-				app:layout_constraintBottom_toTopOf="@id/iv_angry"
-				app:layout_constraintEnd_toEndOf="@id/glEnd"
-				app:layout_constraintStart_toStartOf="@id/glStart"
-				app:layout_constraintTop_toBottomOf="@id/glMid"
-				app:layout_constraintVertical_chainStyle="packed" /
-			
-			<androidx.appcompat.widget.AppCompatImageView
-				android:id="@+id/iv_cloud"
-				android:layout_width="256dp"
-				android:layout_height="192dp"
-				android:layout_marginStart="8dp"
-				android:layout_marginTop="16dp"
-				android:layout_marginEnd="8dp"
-				app:layout_constraintBottom_toTopOf="@id/iv_angry"
-				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toTopOf="parent"
-				app:srcCompat="@drawable/ic_cloud_2" />
-			
-			<ImageView
-				android:id="@+id/iv_angry"
-				android:layout_width="64dp"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="8dp"
-				android:layout_marginBottom="16dp"
-				app:layout_constraintBottom_toBottomOf="parent"
-				app:layout_constraintEnd_toStartOf="@id/iv_happy"
-				app:layout_constraintHorizontal_chainStyle="spread"
-				app:layout_constraintStart_toStartOf="@id/view_add_day"
-				app:layout_constraintTop_toBottomOf="@id/iv_cloud"
-				app:srcCompat="@drawable/emoticon_angry_outline" />
-			
-			<ImageView
-				android:id="@+id/iv_happy"
-				android:layout_width="64dp"
-				android:layout_height="64dp"
-				app:layout_constraintBottom_toBottomOf="@id/iv_angry"
-				app:layout_constraintEnd_toStartOf="@id/iv_neutral"
-				app:layout_constraintStart_toEndOf="@id/iv_angry"
-				app:layout_constraintTop_toTopOf="@id/iv_angry"
-				app:srcCompat="@drawable/emoticon_happy_outline" />
-			
-			<ImageView
-				android:id="@+id/iv_neutral"
-				android:layout_width="64dp"
-				android:layout_height="64dp"
-				app:layout_constraintBottom_toBottomOf="@id/iv_happy"
-				app:layout_constraintEnd_toStartOf="@id/iv_sad"
-				app:layout_constraintHorizontal_chainStyle="packed"
-				app:layout_constraintStart_toEndOf="@id/iv_happy"
-				app:layout_constraintTop_toTopOf="@id/iv_happy"
-				app:srcCompat="@drawable/emoticon_neutral_outline" />
-			
-			<ImageView
-				android:id="@+id/iv_sad"
-				android:layout_width="64dp"
-				android:layout_height="64dp"
-				app:layout_constraintBottom_toBottomOf="@id/iv_neutral"
-				app:layout_constraintEnd_toStartOf="@id/iv_outline"
-				app:layout_constraintStart_toEndOf="@id/iv_neutral"
-				app:layout_constraintTop_toTopOf="@id/iv_neutral"
-				app:srcCompat="@drawable/emoticon_sad_outline" />
-			
-			<ImageView
-				android:id="@+id/iv_outline"
-				android:layout_width="64dp"
-				android:layout_height="64dp"
-				app:layout_constraintBottom_toBottomOf="@id/iv_sad"
-				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintStart_toEndOf="@id/iv_sad"
-				app:layout_constraintTop_toTopOf="@id/iv_sad"
-				app:srcCompat="@drawable/emoticon_outline" />
-			
-			
-			<androidx.cardview.widget.CardView
-				android:id="@+id/view_add_day"
-				android:layout_width="0dp"
-				android:layout_height="64dp"
-				android:layout_marginTop="16dp"
-				android:layout_marginBottom="16dp"
-				android:elevation="4dp"
-				app:layout_constraintBottom_toBottomOf="@id/glBottom"
-				app:layout_constraintEnd_toEndOf="@id/glEnd"
-				app:layout_constraintStart_toStartOf="@id/glStart"
-				app:layout_constraintTop_toBottomOf="@id/iv_angry"
-				app:layout_constraintVertical_chainStyle="packed">
 				
 				<TextView
+					android:id="@+id/tv_greeting"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_margin="8dp"
+					android:text="Jak sie dzisiaj czujesz?"
+					android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+					
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					tools:text="Jak sie dzisiaj czujesz?" />
+				
+				<com.google.android.material.floatingactionbutton.FloatingActionButton
+					android:id="@+id/fab_angry"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_gravity="center"
-					android:text="Zapisz jakas dzisiejsza myśl"
-					android:textSize="18sp" />
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="16dp"
+					android:layout_marginBottom="16dp"
+					app:fabSize="mini"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toBottomOf="@id/tv_greeting"
+					app:srcCompat="@drawable/emoticon_angry_outline" />
+				
+				<com.google.android.material.floatingactionbutton.FloatingActionButton
+					android:id="@+id/fab_happy"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:background="@drawable/circle"
+					app:layout_constraintBottom_toBottomOf="@id/fab_angry"
+					app:fabSize="mini"
+					app:layout_constraintEnd_toStartOf="@id/fab_neutral"
+					app:layout_constraintStart_toEndOf="@id/fab_angry"
+					app:layout_constraintTop_toTopOf="@id/fab_angry"
+					app:srcCompat="@drawable/emoticon_happy_outline" />
+				
+				<com.google.android.material.floatingactionbutton.FloatingActionButton
+					android:id="@+id/fab_neutral"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					app:layout_constraintBottom_toBottomOf="@id/fab_happy"
+					app:layout_constraintEnd_toStartOf="@id/fab_sad"
+					app:fabSize="mini"
+					app:layout_constraintHorizontal_chainStyle="packed"
+					app:layout_constraintStart_toEndOf="@id/fab_happy"
+					app:layout_constraintTop_toTopOf="@id/fab_happy"
+					app:srcCompat="@drawable/emoticon_neutral_outline" />
+				
+				<com.google.android.material.floatingactionbutton.FloatingActionButton
+					android:id="@+id/fab_sad"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					app:layout_constraintBottom_toBottomOf="@id/fab_neutral"
+					app:layout_constraintEnd_toStartOf="@id/fab_outline"
+					app:fabSize="mini"
+					app:layout_constraintStart_toEndOf="@id/fab_neutral"
+					app:layout_constraintTop_toTopOf="@id/fab_neutral"
+					app:srcCompat="@drawable/emoticon_sad_outline" />
+				
+				<com.google.android.material.floatingactionbutton.FloatingActionButton
+					android:id="@+id/fab_outline"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					app:fabSize="mini"
+					app:layout_constraintBottom_toBottomOf="@id/fab_sad"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toEndOf="@id/fab_sad"
+					app:layout_constraintTop_toTopOf="@id/fab_sad"
+					app:srcCompat="@drawable/emoticon_outline" />
 			
-			</androidx.cardview.widget.CardView>
+			</androidx.constraintlayout.widget.ConstraintLayout>
 		
-		-->
+		</androidx.cardview.widget.CardView>
+	-->
 	</androidx.constraintlayout.widget.ConstraintLayout>
 
 
