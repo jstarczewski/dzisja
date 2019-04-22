@@ -5,9 +5,10 @@
 	xmlns:tools="http://schemas.android.com/tools">
 	
 	
-	<androidx.constraintlayout.widget.ConstraintLayout
+	<androidx.constraintlayout.motion.widget.MotionLayout
 		android:layout_width="match_parent"
-		android:layout_height="match_parent">
+		android:layout_height="match_parent"
+		app:layoutDescription="@xml/fab_add">
 		
 		<androidx.constraintlayout.widget.Guideline
 			android:id="@+id/glStart"
@@ -83,48 +84,37 @@
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toTopOf="@id/glMid">
 			
+			
+			<TextView
+				android:id="@+id/day_number"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_margin="8dp"
+				android:gravity="center"
+				android:padding="16dp"
+				android:paddingTop="32dp"
+				android:text="Dzien 1"
+				android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				tools:text="Dzień 1" />
+		
+		
+		</androidx.cardview.widget.CardView>
+		
+		<androidx.cardview.widget.CardView
+			android:id="@+id/cv_feelings"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_margin="8dp"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/cv_day">
+			
 			<androidx.constraintlayout.widget.ConstraintLayout
 				android:layout_width="match_parent"
-				android:layout_height="match_parent">
+				android:layout_height="wrap_content">
 				
-				
-				<TextView
-					android:id="@+id/day_number"
-					android:layout_width="0dp"
-					android:layout_height="wrap_content"
-					android:layout_margin="8dp"
-					android:paddingTop="16dp"
-					android:text="Dzien 1"
-					android:textAlignment="textStart"
-					android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toTopOf="parent"
-					app:layout_constraintVertical_chainStyle="packed"
-					tools:text="Dzień 1" />
-				
-				<TextView
-					android:id="@+id/tv_noet"
-					android:layout_width="0dp"
-					android:layout_height="wrap_content"
-					android:layout_margin="16dp"
-					android:text="Co sie dzisiaj wydarzyło?"
-					android:textAlignment="textStart"
-					android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
-					app:layout_constraintBottom_toTopOf="@id/vDividerMid"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@id/day_number" />
-				
-				<View
-					android:id="@+id/vDividerMid"
-					android:layout_width="0dp"
-					android:layout_height="1dp"
-					android:background="@color/colorPrimaryLight"
-					app:layout_constraintBottom_toTopOf="@id/tv_greeting"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@id/tv_noet"
-					tools:visibility="visible" />
 				
 				<TextView
 					android:id="@+id/tv_greeting"
@@ -132,9 +122,9 @@
 					android:layout_height="wrap_content"
 					android:layout_margin="8dp"
 					android:text="Jak sie dzisiaj czujesz?"
-					android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+					android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@id/vDividerMid"
+					app:layout_constraintTop_toTopOf="parent"
 					tools:text="Jak sie dzisiaj czujesz?" />
 				
 				<com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -291,7 +281,7 @@
 		
 		</androidx.cardview.widget.CardView>
 	-->
-	</androidx.constraintlayout.widget.ConstraintLayout>
+	</androidx.constraintlayout.motion.widget.MotionLayout>
 
 
 </layout>

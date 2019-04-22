@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+	
+	
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		
+		<androidx.constraintlayout.widget.Guideline
+			android:id="@+id/glStart"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			app:layout_constraintGuide_begin="16dp" />
+		
+		<androidx.constraintlayout.widget.Guideline
+			android:id="@+id/glEnd"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			app:layout_constraintGuide_end="16dp" />
+		
+		<androidx.constraintlayout.widget.Guideline
+			android:id="@+id/glBottom"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			app:layout_constraintGuide_end="16dp" />
+		
+		<androidx.constraintlayout.widget.Guideline
+			android:id="@+id/glTop"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			app:layout_constraintGuide_begin="16dp" />
+		
+		
+		<androidx.constraintlayout.widget.Guideline
+			android:id="@+id/glMid"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			app:layout_constraintGuide_percent="0.5" />
+		
+		
+		<com.google.android.material.appbar.AppBarLayout
+			android:id="@+id/app_bar"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			app:layout_constraintTop_toTopOf="parent">
+			
+			<androidx.appcompat.widget.Toolbar
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				app:title="Today">
+			
+			</androidx.appcompat.widget.Toolbar>
+		
+		</com.google.android.material.appbar.AppBarLayout>
+		
+		<com.google.android.material.floatingactionbutton.FloatingActionButton
+			android:id="@+id/fab_add"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:srcCompat="@drawable/ic_add_white_24dp" />
+		
+		
+		<androidx.cardview.widget.CardView
+			android:id="@+id/cv_day"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_margin="16dp"
+			android:layout_marginStart="8dp"
+			app:cardCornerRadius="4dp"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/fab_add">
+			
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent">
+				
+				
+				<TextView
+					android:id="@+id/day_number"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:padding="16dp"
+					android:text="Dzien 1"
+					android:textAlignment="textStart"
+					android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintVertical_chainStyle="packed"
+					tools:text="Dzień 1" />
+				
+				<EditText
+					android:id="@+id/tv_noet"
+					android:layout_width="match_parent"
+					android:inputType="textMultiLine"
+					android:layout_height="wrap_content"
+					android:hint="Co sie dzisiaj wydarzyło?"
+					android:layout_marginStart="16dp"
+					android:layout_marginEnd="16dp"
+					android:textSize="18sp"
+					android:textAlignment="textStart"
+					android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toBottomOf="@id/day_number" />
+		
+			
+			</androidx.constraintlayout.widget.ConstraintLayout>
+		
+		</androidx.cardview.widget.CardView>
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
