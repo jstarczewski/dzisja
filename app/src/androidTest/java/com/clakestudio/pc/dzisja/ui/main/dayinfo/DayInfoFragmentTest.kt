@@ -48,7 +48,7 @@ class DayInfoFragmentTest {
     @Test
      fun checkIfFeelingsSadFabColorWashChangedAfterClicking() {
         Espresso.onView(withId(R.id.fab_sad)).perform(click())
-        val color = activityRule.activity.findViewById<FloatingActionButton>(R.id.fab_angry).backgroundTintList
+        val color = activityRule.activity.findViewById<FloatingActionButton>(R.id.fab_sad).backgroundTintList
         val c  = ColorStateList.valueOf(ContextCompat.getColor(activityRule.activity, R.color.colorSecondaryDark))
         assertEquals(color, c)
     }
@@ -56,21 +56,21 @@ class DayInfoFragmentTest {
     @Test
      fun checkIfFeelingsHappyFabColorWashChangedAfterClicking() {
         Espresso.onView(withId(R.id.fab_happy)).perform(click())
-        val color = activityRule.activity.findViewById<FloatingActionButton>(R.id.fab_angry).backgroundTintList
+        val color = activityRule.activity.findViewById<FloatingActionButton>(R.id.fab_happy).backgroundTintList
         val c  = ColorStateList.valueOf(ContextCompat.getColor(activityRule.activity, R.color.colorSecondaryDark))
         assertEquals(color, c)
     }
     @Test
      fun checkIfFeelingsOutlinedFabColorWashChangedAfterClicking() {
         Espresso.onView(withId(R.id.fab_outline)).perform(click())
-        val color = activityRule.activity.findViewById<FloatingActionButton>(R.id.fab_angry).backgroundTintList
+        val color = activityRule.activity.findViewById<FloatingActionButton>(R.id.fab_outline).backgroundTintList
         val c  = ColorStateList.valueOf(ContextCompat.getColor(activityRule.activity, R.color.colorSecondaryDark))
         assertEquals(color, c)
     }
     @Test
      fun checkIfFeelingsNeutralFabColorWashChangedAfterClicking() {
         Espresso.onView(withId(R.id.fab_neutral)).perform(click())
-        val color = activityRule.activity.findViewById<FloatingActionButton>(R.id.fab_angry).backgroundTintList
+        val color = activityRule.activity.findViewById<FloatingActionButton>(R.id.fab_neutral).backgroundTintList
         val c  = ColorStateList.valueOf(ContextCompat.getColor(activityRule.activity, R.color.colorSecondaryDark))
         assertEquals(color, c)
     }

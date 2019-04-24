@@ -8,14 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.clakestudio.pc.dzisja.R
 import com.clakestudio.pc.dzisja.util.OpenForTesting
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import kotlinx.android.synthetic.main.fragment_add.*
+import kotlinx.android.synthetic.main.fragment_day_info.*
 import javax.inject.Inject
 
 @OpenForTesting
@@ -38,8 +37,12 @@ class DayInfoFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        fab_add.setOnClickListener { navController().navigate(R.id.action_dayInfoFragment_to_daysFragment) }
-
+        fab_angry.setOnClickListener(this)
+        fab_happy.setOnClickListener(this)
+        fab_sad.setOnClickListener(this)
+        fab_neutral.setOnClickListener(this)
+        fab_outline.setOnClickListener(this)
+        fab_add.setOnClickListener(this)
     }
 
     /**
@@ -51,7 +54,7 @@ class DayInfoFragment : Fragment(), View.OnClickListener {
         when(v?.id) {
             R.id.fab_add -> navController().navigate(R.id.action_dayInfoFragment_to_daysFragment)
             else -> {
-                ViewCompat.setBackgroundTintList(v!!, ColorStateList.valueOf(ContextCompat.getColor(context!!, R.color.colorSecondaryDark)))
+                (v as FloatingActionButton).backgroundTintList  = ColorStateList.valueOf(ContextCompat.getColor(context!!, R.color.colorSecondaryDark))
             }
         }
     }
