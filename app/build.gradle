@@ -3,6 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-allopen'
+
+allOpen {
+    // allows mocking for classes w/o directly opening them for release builds
+    annotation 'com.clakestudio.pc.dzisja.util.OpenForTesting'
+}
 
 android {
     compileSdkVersion 28
@@ -48,14 +54,13 @@ android {
     }
 }
 
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.motionLayout"
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
 
     //Dagger
     implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
@@ -75,4 +80,27 @@ dependencies {
     //Charts
     implementation "com.github.PhilJay:MPAndroidChart:v3.1.0"
 
+
+
+    testImplementation "org.mockito:mockito-inline:$rootProject.mockitoVersion"
+    androidTestImplementation "org.mockito:mockito-android:$rootProject.mockitoVersion"
+
+
+    androidTestImplementation "androidx.test:core:$rootProject.androidxTestsVersion"
+
+    androidTestImplementation "androidx.test:runner:$rootProject.androidxTestRunnerVersion"
+    androidTestImplementation "androidx.test:rules:$rootProject.androidxTestRunnerVersion"
+
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.androidxTestsVersion"
+    androidTestImplementation "androidx.test.ext:truth:$rootProject.androidxTestsVersion"
+    androidTestImplementation "com.google.truth:truth:0.42"
+
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-accessibility:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-web:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:$rootProject.espressoVersion"
+
+    androidTestImplementation "androidx.test.espresso:espresso-idling-resource:$rootProject.espressoVersion"
 }

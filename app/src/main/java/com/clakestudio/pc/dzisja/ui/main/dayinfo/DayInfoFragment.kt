@@ -1,18 +1,25 @@
 package com.clakestudio.pc.dzisja.ui.main.dayinfo
 
-import android.os.Binder
+import android.content.res.ColorStateList
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.clakestudio.pc.dzisja.R
-import com.clakestudio.pc.dzisja.di.Injectable
+import com.clakestudio.pc.dzisja.util.OpenForTesting
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.fragment_day_info.*
 import javax.inject.Inject
 
-class DayInfoFragment : Fragment() {
+@OpenForTesting
+class DayInfoFragment : Fragment(), View.OnClickListener {
+
 
     @Inject
     lateinit var viewmodelFactory: ViewModelProvider.Factory
@@ -26,4 +33,31 @@ class DayInfoFragment : Fragment() {
         binding = com.clakestudio.pc.dzisja.databinding.FragmentDayInfoBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        fab_angry.setOnClickListener(this)
+        fab_happy.setOnClickListener(this)
+        fab_sad.setOnClickListener(this)
+        fab_neutral.setOnClickListener(this)
+        fab_outline.setOnClickListener(this)
+        fab_add.setOnClickListener(this)
+    }
+
+    /**
+     * Min SDK will be changed
+     * */
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    override fun onClick(v: View?) {
+        when(v?.id) {
+            R.id.fab_add -> navController().navigate(R.id.action_dayInfoFragment_to_daysFragment)
+            else -> {
+                (v as FloatingActionButton).backgroundTintList  = ColorStateList.valueOf(ContextCompat.getColor(context!!, R.color.colorSecondaryDark))
+            }
+        }
+    }
+
+    fun navController() = findNavController()
 }

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-	
+
 	<item
-		android:id="@+id/action_day_info"
-		android:icon="@drawable/ic_today_white_24dp"
-		android:title="@string/today" />
-	<item
-		android:id="@+id/action_days"
+		android:id="@+id/daysFragment"
 		android:icon="@drawable/ic_playlist_add_check_white_24dp"
 		android:title="@string/days" />
+		
+	<item
+		android:id="@+id/dayInfoFragment"
+		android:icon="@drawable/ic_today_white_24dp"
+		android:checked="true"
+		android:title="@string/today" />
 	<item
 		android:id="@+id/action_humor"
 		android:icon="@drawable/ic_pie_chart_white_24dp"

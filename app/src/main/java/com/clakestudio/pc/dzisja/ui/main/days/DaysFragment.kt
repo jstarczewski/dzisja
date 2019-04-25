@@ -17,17 +17,8 @@ import kotlinx.android.synthetic.main.fragment_days.*
 import kotlinx.android.synthetic.main.fragment_days.view.*
 import javax.inject.Inject
 
-class DaysFragment : Fragment(), Injectable, MotionLayout.TransitionListener {
+class DaysFragment : Fragment(), Injectable {
 
-    override fun onTransitionChange(p0: MotionLayout?, p1: Int, p2: Int, p3: Float) {
-    }
-
-    override fun onTransitionCompleted(p0: MotionLayout?, p1: Int) {
-        if (p1 == R.id.end) {
-            val extras = FragmentNavigatorExtras(circle to "circle")
-            navController().navigate(R.id.action_daysFragment_to_dayInfoFragment, null, null, extras)
-        }
-    }
 
 
     @Inject
@@ -47,17 +38,6 @@ class DaysFragment : Fragment(), Injectable, MotionLayout.TransitionListener {
         super.onViewCreated(view, savedInstanceState)
         daysViewModel = ViewModelProviders.of(this, viewmodelFactory).get(DaysViewModel::class.java).apply {
             init()
-        }
-        binding.root.constrainter.setTransitionListener(this)
-        circle.setOnClickListener {
-            it.animate()
-                .scaleY(4f)
-                .scaleX(4f)
-                .translationYBy((binding.root.height/2-(it.height/2)).toFloat())
-                .withEndAction {
-                    val extras = FragmentNavigatorExtras(circle to "circle")
-                    navController().navigate(R.id.action_daysFragment_to_dayInfoFragment, null, null, extras)
-                }.start()
         }
     }
 
