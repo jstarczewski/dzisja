@@ -52,7 +52,7 @@ class DayInfoFragment : Fragment(), View.OnClickListener {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onClick(v: View?) {
         when(v?.id) {
-            R.id.fab_add -> navController().navigate(R.id.action_dayInfoFragment_to_daysFragment)
+            R.id.fab_add -> navController().navigate(R.id.action_dayInfoFragment_to_addDayFragment)
             else -> {
                 (v as FloatingActionButton).backgroundTintList  = ColorStateList.valueOf(ContextCompat.getColor(context!!, R.color.colorSecondaryDark))
             }

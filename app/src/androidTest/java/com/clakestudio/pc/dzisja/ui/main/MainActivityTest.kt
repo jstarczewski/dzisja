@@ -3,8 +3,7 @@ package com.clakestudio.pc.dzisja.ui.main
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import com.clakestudio.pc.dzisja.R
 import org.junit.Assert.fail
@@ -26,8 +25,9 @@ class MainActivityTest {
     }
 
     @Test
-    fun checkIfFeelingsNavigationItemNavigatedToFeelingsFragment() {
-        fail()
+    fun checkIfStatsNavigationItemNavigatedToFeelingsFragment() {
+        Espresso.onView(withId(R.id.statsFragment)).perform(click())
+        Espresso.onView(withId(R.id.statsFragment)).check(matches(isDisplayed()))
     }
 
     @Test
@@ -38,27 +38,30 @@ class MainActivityTest {
 
     @Test
     fun checkIfDayInfoIsStartUpNavigationDestination() {
-        fail()
+        Espresso.onView(withId(R.id.dayInfoFragment)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun checkIfFeelingsItemIsSelectedAfterNavigation() {
-        fail()
+    fun checkIfStatsItemIsSelectedAfterNavigation() {
+        Espresso.onView(withId(R.id.statsFragment)).perform(click())
+        Espresso.onView(withId(R.id.statsFragment)).check(matches(isSelected()))
     }
 
     @Test
     fun checkIfDaysItemIsSelectedAfterNavigation() {
-        fail()
+        Espresso.onView(withId(R.id.daysFragment)).perform(click())
+        Espresso.onView(withId(R.id.daysFragment)).check(matches(isSelected()))
     }
 
     @Test
     fun checkIfDayInfoItemIsSelectedAfterNavigation() {
-        fail()
+        Espresso.onView(withId(R.id.dayInfoFragment)).perform(click())
+        Espresso.onView(withId(R.id.dayInfoFragment)).check(matches(isSelected()))
     }
 
     @Test
     fun checkIfDayInfoItemIsSelectedAtStartup() {
-        fail()
+        Espresso.onView(withId(R.id.dayInfoFragment)).check(matches(isSelected()))
     }
 
 
