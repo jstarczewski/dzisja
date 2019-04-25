@@ -4,15 +4,18 @@
 	<item
 		android:id="@+id/daysFragment"
 		android:icon="@drawable/ic_playlist_add_check_white_24dp"
+		android:checkable="true"
 		android:title="@string/days" />
 		
 	<item
 		android:id="@+id/dayInfoFragment"
 		android:icon="@drawable/ic_today_white_24dp"
+		android:checkable="true"
 		android:checked="true"
 		android:title="@string/today" />
 	<item
-		android:id="@+id/action_humor"
+		android:id="@+id/statsFragment"
+		android:checkable="true"
 		android:icon="@drawable/ic_pie_chart_white_24dp"
 		android:title="@string/humor" />
 

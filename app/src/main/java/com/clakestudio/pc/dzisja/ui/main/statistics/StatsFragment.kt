@@ -1,38 +1,41 @@
-package com.clakestudio.pc.dzisja.ui.main.addday
+package com.clakestudio.pc.dzisja.ui.main.statistics
 
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import com.clakestudio.pc.dzisja.util.OpenForTesting
+import com.clakestudio.pc.dzisja.databinding.FragmentStatsBinding
+
 import javax.inject.Inject
 
-@OpenForTesting
-class AddDayFragment : Fragment() {
+class StatsFragment : Fragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    lateinit var addViewModel: AddDayViewModel
+    private lateinit var binding: FragmentStatsBinding
 
-    private lateinit var binding: com.clakestudio.pc.dzisja.databinding.FragmentAddDayBinding
+    private lateinit var viewModel: StatsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = com.clakestudio.pc.dzisja.databinding.FragmentAddDayBinding.inflate(inflater, container, false)
+        binding = FragmentStatsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
+    /**
+     * OnViewCreated -> Factory
+     * */
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        viewModel = ViewModelProviders.of(this).get(StatsViewModel::class.java)
         // TODO: Use the ViewModel
     }
 
-
-    fun navController() = findNavController()
 }

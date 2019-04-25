@@ -8,6 +8,7 @@ import dagger.Module
 import dagger.multibindings.IntoMap
 import com.clakestudio.pc.dzisja.ui.main.dayinfo.DayInfoViewModel
 import com.clakestudio.pc.dzisja.ui.main.days.DaysViewModel
+import com.clakestudio.pc.dzisja.ui.main.statistics.StatsViewModel
 import com.clakestudio.pc.dzisja.viewmodel.DzisjaViewModelFactory
 
 @Module
@@ -30,6 +31,14 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(AddDayViewModel::class)
+    abstract fun bindAddDayViewModel(addDayViewModel: AddDayViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(StatsViewModel::class)
+    abstract fun bindStatsViewModel(statsViewModel: StatsViewModel): ViewModel
+
+    @Binds
     abstract fun bindViewModelFactory(factory: DzisjaViewModelFactory): ViewModelProvider.Factory
 
 }

@@ -33,7 +33,7 @@ class DayInfoFragmentTest {
     @Test
     fun navigateToAddFragment() {
         Espresso.onView(withId(R.id.fab_add)).perform(click())
-        verify(dayInfoFragment.navController).navigate(R.id.action_dayInfoFragment_to_daysFragment)
+        verify(dayInfoFragment.navController).navigate(R.id.action_dayInfoFragment_to_addDayFragment)
     }
 
 
