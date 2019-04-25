@@ -1,5 +1,6 @@
 package com.clakestudio.pc.dzisja.di
 
+import com.clakestudio.pc.dzisja.ui.main.addday.AddDayFragment
 import com.clakestudio.pc.dzisja.ui.main.dayinfo.DayInfoFragment
 import com.clakestudio.pc.dzisja.ui.main.days.DaysFragment
 import dagger.Module
@@ -15,5 +16,7 @@ abstract class FragmentBuildersModule {
     @ContributesAndroidInjector
     abstract fun contributeDayInfoFragment(): DayInfoFragment
 
+    @ContributesAndroidInjector
+    abstract fun contributeAddDayFragment(): AddDayFragment
 
 }

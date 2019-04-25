@@ -2,6 +2,7 @@ package com.clakestudio.pc.dzisja.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.clakestudio.pc.dzisja.ui.main.addday.AddDayViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -26,8 +27,9 @@ abstract class ViewModelModule {
     @ViewModelKey(DayInfoViewModel::class)
     abstract fun bindDayInfoViewModel(dayInfoViewModel: DayInfoViewModel): ViewModel
 
-
     @Binds
+    @IntoMap
+    @ViewModelKey(AddDayViewModel::class)
     abstract fun bindViewModelFactory(factory: DzisjaViewModelFactory): ViewModelProvider.Factory
 
 }
