@@ -64,5 +64,25 @@ class MainActivityTest {
         Espresso.onView(withId(R.id.dayInfoFragment)).check(matches(isSelected()))
     }
 
+    @Test
+    fun checkIfBottomNavigationViewIsInvisibleWhenAddFragmentIsVisible() {
+        fail()
+    }
+
+    @Test
+    fun checkIfBottomNavigationViewIsVisibleWhenDayInfoFragmentIsVisible() {
+        fail()
+    }
+
+    @Test
+    fun checkIfBottomNavigationViewIsVisibleWhenDaysFragmentIsVisible() {
+        fail()
+    }
+
+    @Test
+    fun checkIfBottomNavigationViewIsVisibleWhenStatsFragmentIsVisible() {
+        fail()
+    }
+
 
 }

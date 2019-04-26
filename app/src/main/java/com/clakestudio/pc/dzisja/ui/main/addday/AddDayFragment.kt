@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.clakestudio.pc.dzisja.R
 import com.clakestudio.pc.dzisja.util.OpenForTesting
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.activity_main.view.*
 import javax.inject.Inject
 
 @OpenForTesting
