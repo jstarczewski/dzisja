@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.clakestudio.pc.dzisja.R
 import com.clakestudio.pc.dzisja.util.OpenForTesting
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_day_info.*
 import javax.inject.Inject
 
@@ -43,6 +44,7 @@ class DayInfoFragment : Fragment(), View.OnClickListener {
         fab_neutral.setOnClickListener(this)
         fab_outline.setOnClickListener(this)
         fab_add.setOnClickListener(this)
+        showBottomNavigationBar()
     }
 
     /**
@@ -51,12 +53,24 @@ class DayInfoFragment : Fragment(), View.OnClickListener {
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onClick(v: View?) {
-        when(v?.id) {
+        when (v?.id) {
             R.id.fab_add -> navController().navigate(R.id.action_dayInfoFragment_to_addDayFragment)
             else -> {
-                (v as FloatingActionButton).backgroundTintList  = ColorStateList.valueOf(ContextCompat.getColor(context!!, R.color.colorSecondaryDark))
+                changeFabColor(v as FloatingActionButton)
             }
         }
+    }
+
+    private fun changeFabColor(fab: FloatingActionButton) {
+        val secondary = ColorStateList.valueOf(ContextCompat.getColor(context!!, R.color.colorSecondaryDark))
+        val primary = ColorStateList.valueOf(ContextCompat.getColor(context!!, R.color.colorPrimaryDark))
+        fab.apply {
+            backgroundTintList = if (backgroundTintList!! == secondary) primary else secondary
+        }
+    }
+
+    private fun showBottomNavigationBar() {
+        activity?.bottom_navigation?.visibility = View.VISIBLE
     }
 
     fun navController() = findNavController()

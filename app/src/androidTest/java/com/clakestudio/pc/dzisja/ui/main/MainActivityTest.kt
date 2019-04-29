@@ -6,6 +6,7 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import com.clakestudio.pc.dzisja.R
+import org.hamcrest.CoreMatchers.not
 import org.junit.Assert.fail
 import org.junit.Rule
 import org.junit.Test
@@ -66,22 +67,15 @@ class MainActivityTest {
 
     @Test
     fun checkIfBottomNavigationViewIsInvisibleWhenAddFragmentIsVisible() {
-        fail()
+        Espresso.onView(withId(R.id.fab_add)).perform(click())
+        Espresso.onView(withId(R.id.bottom_navigation)).check(matches(not(isDisplayed())))
     }
 
     @Test
     fun checkIfBottomNavigationViewIsVisibleWhenDayInfoFragmentIsVisible() {
-        fail()
-    }
-
-    @Test
-    fun checkIfBottomNavigationViewIsVisibleWhenDaysFragmentIsVisible() {
-        fail()
-    }
-
-    @Test
-    fun checkIfBottomNavigationViewIsVisibleWhenStatsFragmentIsVisible() {
-        fail()
+        Espresso.onView(withId(R.id.fab_add)).perform(click())
+        Espresso.pressBack()
+        Espresso.onView(withId(R.id.bottom_navigation)).check(matches(isDisplayed()))
     }
 
 

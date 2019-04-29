@@ -41,7 +41,6 @@ class DaysFragment : Fragment(), Injectable {
         }
     }
 
-
     private fun navController() = findNavController()
 
 

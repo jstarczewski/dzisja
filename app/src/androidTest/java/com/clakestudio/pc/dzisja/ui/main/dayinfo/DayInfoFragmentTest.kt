@@ -38,44 +38,93 @@ class DayInfoFragmentTest {
 
 
     @Test
-     fun checkIfFeelingsAngryFabColorWashChangedAfterClicking() {
+    fun checkIfFeelingsAngryFabColorWasChangedAfterClicking() {
         Espresso.onView(withId(R.id.fab_angry)).perform(click())
         val color = activityRule.activity.findViewById<FloatingActionButton>(R.id.fab_angry).backgroundTintList
-        val c  = ColorStateList.valueOf(ContextCompat.getColor(activityRule.activity, R.color.colorSecondaryDark))
+        val c = ColorStateList.valueOf(ContextCompat.getColor(activityRule.activity, R.color.colorSecondaryDark))
         assertEquals(color, c)
     }
 
     @Test
-     fun checkIfFeelingsSadFabColorWashChangedAfterClicking() {
+    fun checkIfFeelingsSadFabColorWasChangedAfterClicking() {
         Espresso.onView(withId(R.id.fab_sad)).perform(click())
         val color = activityRule.activity.findViewById<FloatingActionButton>(R.id.fab_sad).backgroundTintList
-        val c  = ColorStateList.valueOf(ContextCompat.getColor(activityRule.activity, R.color.colorSecondaryDark))
+        val c = ColorStateList.valueOf(ContextCompat.getColor(activityRule.activity, R.color.colorSecondaryDark))
         assertEquals(color, c)
     }
 
     @Test
-     fun checkIfFeelingsHappyFabColorWashChangedAfterClicking() {
+    fun checkIfFeelingsHappyFabColorWasChangedAfterClicking() {
         Espresso.onView(withId(R.id.fab_happy)).perform(click())
         val color = activityRule.activity.findViewById<FloatingActionButton>(R.id.fab_happy).backgroundTintList
-        val c  = ColorStateList.valueOf(ContextCompat.getColor(activityRule.activity, R.color.colorSecondaryDark))
-        assertEquals(color, c)
-    }
-    @Test
-     fun checkIfFeelingsOutlinedFabColorWashChangedAfterClicking() {
-        Espresso.onView(withId(R.id.fab_outline)).perform(click())
-        val color = activityRule.activity.findViewById<FloatingActionButton>(R.id.fab_outline).backgroundTintList
-        val c  = ColorStateList.valueOf(ContextCompat.getColor(activityRule.activity, R.color.colorSecondaryDark))
-        assertEquals(color, c)
-    }
-    @Test
-     fun checkIfFeelingsNeutralFabColorWashChangedAfterClicking() {
-        Espresso.onView(withId(R.id.fab_neutral)).perform(click())
-        val color = activityRule.activity.findViewById<FloatingActionButton>(R.id.fab_neutral).backgroundTintList
-        val c  = ColorStateList.valueOf(ContextCompat.getColor(activityRule.activity, R.color.colorSecondaryDark))
+        val c = ColorStateList.valueOf(ContextCompat.getColor(activityRule.activity, R.color.colorSecondaryDark))
         assertEquals(color, c)
     }
 
-    class TestDayInfoFragment: DayInfoFragment() {
+    @Test
+    fun checkIfFeelingsOutlinedFabColorWasChangedAfterClicking() {
+        Espresso.onView(withId(R.id.fab_outline)).perform(click())
+        val color = activityRule.activity.findViewById<FloatingActionButton>(R.id.fab_outline).backgroundTintList
+        val c = ColorStateList.valueOf(ContextCompat.getColor(activityRule.activity, R.color.colorSecondaryDark))
+        assertEquals(color, c)
+    }
+
+    @Test
+    fun checkIfFeelingsNeutralFabColorWasChangedAfterClicking() {
+        Espresso.onView(withId(R.id.fab_neutral)).perform(click())
+        Espresso.onView(withId(R.id.fab_neutral)).perform(click())
+        val color = activityRule.activity.findViewById<FloatingActionButton>(R.id.fab_neutral).backgroundTintList
+        val c = ColorStateList.valueOf(ContextCompat.getColor(activityRule.activity, R.color.colorPrimaryDark))
+        assertEquals(color, c)
+    }
+
+
+    @Test
+    fun checkIfFeelingsAngryFabColorWasChangedBackAfterClickingSecondTime() {
+        Espresso.onView(withId(R.id.fab_angry)).perform(click())
+        Espresso.onView(withId(R.id.fab_angry)).perform(click())
+        val color = activityRule.activity.findViewById<FloatingActionButton>(R.id.fab_angry).backgroundTintList
+        val c = ColorStateList.valueOf(ContextCompat.getColor(activityRule.activity, R.color.colorPrimaryDark))
+        assertEquals(color, c)
+    }
+
+    @Test
+    fun checkIfFeelingsSadFabColorWasChangedBackAfterClickingSecondTime() {
+        Espresso.onView(withId(R.id.fab_sad)).perform(click())
+        Espresso.onView(withId(R.id.fab_sad)).perform(click())
+        val color = activityRule.activity.findViewById<FloatingActionButton>(R.id.fab_sad).backgroundTintList
+        val c = ColorStateList.valueOf(ContextCompat.getColor(activityRule.activity, R.color.colorPrimaryDark))
+        assertEquals(color, c)
+    }
+
+    @Test
+    fun checkIfFeelingsHappyFabColorWasChangedBackAfterClickingSecondTime() {
+        Espresso.onView(withId(R.id.fab_happy)).perform(click())
+        Espresso.onView(withId(R.id.fab_happy)).perform(click())
+        val color = activityRule.activity.findViewById<FloatingActionButton>(R.id.fab_happy).backgroundTintList
+        val c = ColorStateList.valueOf(ContextCompat.getColor(activityRule.activity, R.color.colorPrimaryDark))
+        assertEquals(color, c)
+    }
+
+    @Test
+    fun checkIfFeelingsOutlinedFabColorWasChangedBackAfterClickingSecondTime() {
+        Espresso.onView(withId(R.id.fab_outline)).perform(click())
+        Espresso.onView(withId(R.id.fab_outline)).perform(click())
+        val color = activityRule.activity.findViewById<FloatingActionButton>(R.id.fab_outline).backgroundTintList
+        val c = ColorStateList.valueOf(ContextCompat.getColor(activityRule.activity, R.color.colorPrimaryDark))
+        assertEquals(color, c)
+    }
+
+    @Test
+    fun checkIfFeelingsNeutralFabColorWasChangedBackAfterClickingSecondTime() {
+        Espresso.onView(withId(R.id.fab_neutral)).perform(click())
+        Espresso.onView(withId(R.id.fab_neutral)).perform(click())
+        val color = activityRule.activity.findViewById<FloatingActionButton>(R.id.fab_neutral).backgroundTintList
+        val c = ColorStateList.valueOf(ContextCompat.getColor(activityRule.activity, R.color.colorPrimaryDark))
+        assertEquals(color, c)
+    }
+
+    class TestDayInfoFragment : DayInfoFragment() {
         val navController = mock<NavController>(NavController::class.java)
         override fun navController() = navController
     }
