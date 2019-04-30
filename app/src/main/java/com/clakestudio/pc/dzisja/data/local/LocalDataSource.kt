@@ -1,8 +1,8 @@
-package com.clakestudio.pc.dzisja.db.local
+package com.clakestudio.pc.dzisja.data.local
 
 import androidx.lifecycle.LiveData
-import com.clakestudio.pc.dzisja.db.DataSource
-import com.clakestudio.pc.dzisja.db.Day
+import com.clakestudio.pc.dzisja.data.DataSource
+import com.clakestudio.pc.dzisja.data.Day
 
 class LocalDataSource : DataSource {
 

@@ -1,4 +1,4 @@
-package com.clakestudio.pc.dzisja.db
+package com.clakestudio.pc.dzisja.data
 
 import androidx.lifecycle.LiveData
 

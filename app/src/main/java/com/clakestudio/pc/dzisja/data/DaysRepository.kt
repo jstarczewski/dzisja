@@ -1,10 +1,8 @@
-package com.clakestudio.pc.dzisja.db.remote
+package com.clakestudio.pc.dzisja.data
 
 import androidx.lifecycle.LiveData
-import com.clakestudio.pc.dzisja.db.DataSource
-import com.clakestudio.pc.dzisja.db.Day
 
-class RemoteDataSource() : DataSource {
+class DaysRepository(localDataSource: DataSource, remoteDataSource: DataSource) : DataSource {
 
     override fun getAllDays(): LiveData<List<Day>> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -21,5 +19,4 @@ class RemoteDataSource() : DataSource {
     override fun getDayByDate(date: String): LiveData<Day> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-
 }
