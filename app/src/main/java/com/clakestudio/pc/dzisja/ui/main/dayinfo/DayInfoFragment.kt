@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.clakestudio.pc.dzisja.R
+import com.clakestudio.pc.dzisja.di.Injectable
 import com.clakestudio.pc.dzisja.util.OpenForTesting
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_main.*
@@ -19,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_day_info.*
 import javax.inject.Inject
 
 @OpenForTesting
-class DayInfoFragment : Fragment(), View.OnClickListener {
+class DayInfoFragment : Fragment(), View.OnClickListener, Injectable {
 
 
     @Inject
@@ -43,7 +44,7 @@ class DayInfoFragment : Fragment(), View.OnClickListener {
         fab_sad.setOnClickListener(this)
         fab_neutral.setOnClickListener(this)
         fab_outline.setOnClickListener(this)
-        fab_add.setOnClickListener(this)
+        //fab_add.setOnClickListener(this)
         showBottomNavigationBar()
     }
 
