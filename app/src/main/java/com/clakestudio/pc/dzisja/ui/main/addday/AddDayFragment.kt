@@ -38,10 +38,10 @@ class AddDayFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         // TODO: Use the ViewModel
 
-        fab_add.setOnClickListener {
+        //fab_add.setOnClickListener {
             // TODO: Save note
-            navController().popBackStack()
-        }
+         //   navController().popBackStack()
+        //}
 
         hideBottomNavigationBar()
 
