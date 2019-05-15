@@ -44,7 +44,7 @@ class DayInfoFragment : Fragment(), View.OnClickListener, Injectable {
         fab_sad.setOnClickListener(this)
         fab_neutral.setOnClickListener(this)
         fab_outline.setOnClickListener(this)
-        //fab_add.setOnClickListener(this)
+        fab_add.setOnClickListener(this)
         showBottomNavigationBar()
     }
 
