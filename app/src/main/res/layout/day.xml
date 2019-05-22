@@ -1,29 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto">
-
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+	
 	<androidx.constraintlayout.widget.ConstraintLayout
-		android:layout_width="wrap_content"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:foregroundGravity="center"
-		android:alpha="100"
-		android:orientation="vertical">
+		android:layout_marginTop="8dp">
 		
-		<TextView
-			android:id="@+id/tvTitle"
+		
+		<androidx.cardview.widget.CardView
+			android:id="@+id/cv_feelings"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:background="@drawable/circle"
-			android:gravity="center"
-			android:foregroundGravity="center"
-			android:text="1"
-			android:textAlignment="center"
-			android:textSize="20sp"
-			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toTopOf="parent" />
+			app:layout_constraintTop_toBottomOf="@id/app_bar"
+			app:layout_constraintVertical_chainStyle="packed">
+			
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+				
+			
+				<com.google.android.material.floatingactionbutton.FloatingActionButton
+					android:id="@+id/fab_angry"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="16dp"
+					android:layout_marginBottom="16dp"
+					app:borderWidth="0dp"
+					app:fabSize="mini"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					app:srcCompat="@drawable/emoticon_angry_outline" />
+				
+				<com.google.android.material.floatingactionbutton.FloatingActionButton
+					android:id="@+id/fab_happy"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:background="@drawable/circle"
+					app:borderWidth="0dp"
+					app:fabSize="mini"
+					app:layout_constraintBottom_toBottomOf="@id/fab_angry"
+					app:layout_constraintEnd_toStartOf="@id/fab_neutral"
+					app:layout_constraintStart_toEndOf="@id/fab_angry"
+					app:layout_constraintTop_toTopOf="@id/fab_angry"
+					app:srcCompat="@drawable/emoticon_happy_outline" />
+				
+				<com.google.android.material.floatingactionbutton.FloatingActionButton
+					android:id="@+id/fab_neutral"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					app:borderWidth="0dp"
+					app:fabSize="mini"
+					app:layout_constraintBottom_toBottomOf="@id/fab_happy"
+					app:layout_constraintEnd_toStartOf="@id/fab_sad"
+					app:layout_constraintHorizontal_chainStyle="packed"
+					app:layout_constraintStart_toEndOf="@id/fab_happy"
+					app:layout_constraintTop_toTopOf="@id/fab_happy"
+					app:srcCompat="@drawable/emoticon_neutral_outline" />
+				
+				<com.google.android.material.floatingactionbutton.FloatingActionButton
+					android:id="@+id/fab_sad"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					app:borderWidth="0dp"
+					app:fabSize="mini"
+					app:layout_constraintBottom_toBottomOf="@id/fab_neutral"
+					app:layout_constraintEnd_toStartOf="@id/fab_outline"
+					app:layout_constraintStart_toEndOf="@id/fab_neutral"
+					app:layout_constraintTop_toTopOf="@id/fab_neutral"
+					app:srcCompat="@drawable/emoticon_sad_outline" />
+				
+				<com.google.android.material.floatingactionbutton.FloatingActionButton
+					android:id="@+id/fab_outline"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					app:borderWidth="0dp"
+					app:fabSize="mini"
+					app:layout_constraintBottom_toBottomOf="@id/fab_sad"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toEndOf="@id/fab_sad"
+					app:layout_constraintTop_toTopOf="@id/fab_sad"
+					app:srcCompat="@drawable/emoticon_outline" />
+				
+				
+				<TextView
+					android:id="@+id/tv_day"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_margin="8dp"
+					android:text="Dzien 1"
+					android:textAlignment="center"
+					android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toBottomOf="@id/fab_outline"
+					app:layout_constraintVertical_bias="0.25"
+					tools:text="Dzien 1" />
+				
+				<TextView
+					android:id="@+id/tv_day_info"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_margin="16dp"
+					android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toBottomOf="@id/tv_day"
+					tools:text="Today was a good day!" />
+			
+			
+			</androidx.constraintlayout.widget.ConstraintLayout>
+		
+		</androidx.cardview.widget.CardView>
+	
 	
 	</androidx.constraintlayout.widget.ConstraintLayout>
 

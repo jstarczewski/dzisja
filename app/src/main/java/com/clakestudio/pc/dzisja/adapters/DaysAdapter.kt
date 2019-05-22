@@ -12,16 +12,13 @@ class DaysAdapter(private var days: ArrayList<String>,
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(text: String) {
-            binding.tvTitle.text = text
+        //     binding.tvTitle.text = text
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DaysViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = com.clakestudio.pc.dzisja.databinding.DayBinding.inflate(inflater, parent, false)
-        binding.root.setOnClickListener {
-            onDayClickCallback.invoke(Unit)
-        }
         return DaysViewHolder(binding)
     }
 
