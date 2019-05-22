@@ -13,7 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class DaysAdapter(
     private var days: ArrayList<Day>,
-    private val onDayClickCallback: (Unit) -> Unit
+    private val onDayClickCallback: () -> Unit
 ) : RecyclerView.Adapter<DaysAdapter.DaysViewHolder>() {
 
     private lateinit var context: Context
@@ -21,15 +21,14 @@ class DaysAdapter(
     inner class DaysViewHolder(private val binding: DayBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        private val fabs: List<FloatingActionButton> =
-            listOf(binding.fabAngry, binding.fabHappy, binding.fabNeutral, binding.fabSad, binding.fabOutline)
+        //private val fabs: List<FloatingActionButton> =
+        //    listOf(binding.fabAngry, binding.fabHappy, binding.fabNeutral, binding.fabSad, binding.fabOutline)
 
-        fun bind(textDayInfo: String, textDay: String, emojis: List<Boolean>) {
+        fun bind(textDayInfo: String, textDay: String, emojis: List<String>) {
             binding.tvDay.text = textDay
             binding.tvDayInfo.text = textDayInfo
-            for (i in 0 until fabs.size) {
-                if (emojis[i])
-                    changeFabColor(fabs[i])
+            emojis.forEach {
+                changeFabColor(binding.root.findViewWithTag(it))
             }
         }
 
@@ -47,7 +46,7 @@ class DaysAdapter(
         val inflater = LayoutInflater.from(parent.context)
         val binding = DayBinding.inflate(inflater, parent, false)
         binding.root.setOnClickListener {
-            onDayClickCallback.invoke(Unit)
+            onDayClickCallback.invoke()
         }
         context = parent.context
         return DaysViewHolder(binding)
@@ -59,7 +58,8 @@ class DaysAdapter(
         holder.bind(
             days[position].date,
             days[position].note,
-            days[position].feelings.split(",").map { it.toBoolean() })
+            days[position].feelings.split(",")
+        )
     }
 
 

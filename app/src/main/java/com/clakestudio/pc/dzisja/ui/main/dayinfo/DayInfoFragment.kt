@@ -9,9 +9,14 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.clakestudio.pc.dzisja.R
+import com.clakestudio.pc.dzisja.adapters.DaysAdapter
+import com.clakestudio.pc.dzisja.data.Day
 import com.clakestudio.pc.dzisja.di.Injectable
 import com.clakestudio.pc.dzisja.util.OpenForTesting
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -29,6 +34,9 @@ class DayInfoFragment : Fragment(), View.OnClickListener, Injectable {
     lateinit var dayInfoViewModel: DayInfoViewModel
 
     private lateinit var binding: com.clakestudio.pc.dzisja.databinding.FragmentDayInfoBinding
+
+    private val daysAdapter =
+        DaysAdapter(arrayListOf()) { findNavController().navigate(R.id.action_dayInfoFragment_to_addDayFragment) }
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -49,9 +57,22 @@ class DayInfoFragment : Fragment(), View.OnClickListener, Injectable {
         showBottomNavigationBar()
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        setupRecyclerView()
+        dayInfoViewModel = ViewModelProviders.of(this, viewmodelFactory).get(DayInfoViewModel::class.java).apply {
+            init()
+            days.observe(viewLifecycleOwner, Observer {
+                daysAdapter.replaceData(it as ArrayList<Day>)
+            })
+        }
+
+    }
+
     /**
      * Min SDK will be changed
      * */
+
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onClick(v: View?) {
@@ -69,6 +90,12 @@ class DayInfoFragment : Fragment(), View.OnClickListener, Injectable {
         fab.apply {
             backgroundTintList = if (backgroundTintList!! == secondary) primary else secondary
         }
+    }
+
+    private fun setupRecyclerView() = with(rv_days) {
+        layoutManager = LinearLayoutManager(this@DayInfoFragment.context)
+        setHasFixedSize(true)
+        adapter = daysAdapter
     }
 
     private fun showBottomNavigationBar() {

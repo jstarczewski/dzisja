@@ -23,7 +23,7 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content">
 				
-			
+				
 				<com.google.android.material.floatingactionbutton.FloatingActionButton
 					android:id="@+id/fab_angry"
 					android:layout_width="wrap_content"
@@ -31,6 +31,7 @@
 					android:layout_marginStart="16dp"
 					android:layout_marginTop="16dp"
 					android:layout_marginBottom="16dp"
+					android:tag="angry"
 					app:borderWidth="0dp"
 					app:fabSize="mini"
 					app:layout_constraintStart_toStartOf="parent"
@@ -42,6 +43,7 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:background="@drawable/circle"
+					android:tag="happy"
 					app:borderWidth="0dp"
 					app:fabSize="mini"
 					app:layout_constraintBottom_toBottomOf="@id/fab_angry"
@@ -54,6 +56,7 @@
 					android:id="@+id/fab_neutral"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:tag="neutral"
 					app:borderWidth="0dp"
 					app:fabSize="mini"
 					app:layout_constraintBottom_toBottomOf="@id/fab_happy"
@@ -67,6 +70,7 @@
 					android:id="@+id/fab_sad"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:tag="sad"
 					app:borderWidth="0dp"
 					app:fabSize="mini"
 					app:layout_constraintBottom_toBottomOf="@id/fab_neutral"
@@ -79,6 +83,7 @@
 					android:id="@+id/fab_outline"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:tag="outline"
 					app:borderWidth="0dp"
 					app:fabSize="mini"
 					app:layout_constraintBottom_toBottomOf="@id/fab_sad"
