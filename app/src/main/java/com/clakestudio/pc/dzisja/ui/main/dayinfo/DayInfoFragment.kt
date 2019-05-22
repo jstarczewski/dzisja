@@ -39,12 +39,13 @@ class DayInfoFragment : Fragment(), View.OnClickListener, Injectable {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        /*
         fab_angry.setOnClickListener(this)
         fab_happy.setOnClickListener(this)
         fab_sad.setOnClickListener(this)
         fab_neutral.setOnClickListener(this)
         fab_outline.setOnClickListener(this)
-        fab_add.setOnClickListener(this)
+        fab_add.setOnClickListener(this)*/
         showBottomNavigationBar()
     }
 

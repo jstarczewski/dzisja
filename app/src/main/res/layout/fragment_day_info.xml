@@ -25,6 +25,7 @@
 		
 		</com.google.android.material.appbar.AppBarLayout>
 		
+		<!--
 		<androidx.cardview.widget.CardView
 			android:id="@+id/cv_feelings"
 			android:layout_width="match_parent"
@@ -149,14 +150,19 @@
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@+id/cv_feelings" />
 		
+		
+		-->
+		
 		<androidx.recyclerview.widget.RecyclerView
 			android:id="@+id/rv_days"
 			android:layout_width="match_parent"
-			app:layout_constraintTop_toBottomOf="@id/fab_add"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintEnd_toEndOf="parent"
+			android:layout_height="wrap_content"
 			android:padding="4dp"
-			android:layout_height="wrap_content">
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="0.0"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/app_bar"
+			tools:listitem="@layout/day">
 		
 		</androidx.recyclerview.widget.RecyclerView>
 	
