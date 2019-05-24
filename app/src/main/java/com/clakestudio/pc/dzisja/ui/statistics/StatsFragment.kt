@@ -67,7 +67,6 @@ class StatsFragment : Fragment(), Injectable {
     private fun setupPieChartData(data: List<Pair<String, Int>>) =
         replaceData(data.map { PieEntry(it.second.toFloat(), it.first) })
 
-
     private fun replaceData(data: List<PieEntry>) {
         val pieDataSet = PieDataSet(data, "feeling")
         pieDataSet.sliceSpace = 3f
