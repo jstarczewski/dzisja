@@ -7,8 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.clakestudio.pc.dzisja.data.Day
 import com.clakestudio.pc.dzisja.databinding.FragmentStatsBinding
+import com.clakestudio.pc.dzisja.di.Injectable
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
@@ -17,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_stats.*
 
 import javax.inject.Inject
 
-class StatsFragment : Fragment() {
+class StatsFragment : Fragment(), Injectable {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -40,29 +43,30 @@ class StatsFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(StatsViewModel::class.java)
-        // TODO: Use the ViewModel
+        setupPieChart()
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(StatsViewModel::class.java).apply {
+            init()
+            feelings.observe(viewLifecycleOwner, Observer {
+                setupPieChartData(it)
+            })
+        }
+    }
 
-        /**
-         * Base empty chart setup
-         * */
-
+    private fun setupPieChart() {
         pieChart.setUsePercentValues(true)
         pieChart.description.isEnabled = true
-        pieChart.setExtraOffsets(5f,10f,5f,5f)
+        pieChart.setExtraOffsets(5f, 10f, 5f, 5f)
         pieChart.dragDecelerationFrictionCoef = 0.95f
         pieChart.isDrawHoleEnabled = true
         pieChart.setHoleColor(Color.BLACK)
         pieChart.transparentCircleRadius = 61f
+    }
 
-        val data = arrayListOf<PieEntry>(
-            PieEntry(12f, "Happy"),
-            PieEntry(22f, "Sad"),
-            PieEntry(18f, "Outline"),
-            PieEntry(1f,"Angry"),
-            PieEntry(33f, "Neutral")
-        )
+    private fun setupPieChartData(data: List<Pair<String, Int>>) =
+        replaceData(data.map { PieEntry(it.second.toFloat(), it.first) })
 
+
+    private fun replaceData(data: List<PieEntry>) {
         val pieDataSet = PieDataSet(data, "Feelings")
         pieDataSet.sliceSpace = 3f
         pieDataSet.selectionShift = 5f
@@ -71,8 +75,6 @@ class StatsFragment : Fragment() {
         val pieData = PieData(pieDataSet)
         pieData.setValueTextSize(10f)
         pieChart.data = pieData
-
-
     }
 
 }

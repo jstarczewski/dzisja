@@ -37,13 +37,6 @@ class AddDayFragment : Fragment(), Injectable, View.OnClickListener {
         }
     }
 
-    private fun changeFabColor(fab: FloatingActionButton) {
-        val secondary = ColorStateList.valueOf(ContextCompat.getColor(context!!, R.color.colorSecondaryDark))
-        val primary = ColorStateList.valueOf(ContextCompat.getColor(context!!, R.color.colorPrimaryDark))
-        fab.apply {
-            backgroundTintList = if (backgroundTintList!! == secondary) primary else secondary
-        }
-    }
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -67,6 +60,7 @@ class AddDayFragment : Fragment(), Injectable, View.OnClickListener {
             day.observe(viewLifecycleOwner, Observer {
                 et_note.setText(it.note)
                 day_number.text = it.date
+                showFeelings(it.feelings.split(","))
             })
         }
 
@@ -96,7 +90,7 @@ class AddDayFragment : Fragment(), Injectable, View.OnClickListener {
             if (it.backgroundTintList == secondary)
                 feelings = feelings + it.tag + ","
         }
-        feelings.substring(0, feelings.length-2)
+        feelings.substring(0, feelings.length - 3)
         return feelings
     }
 
@@ -105,4 +99,19 @@ class AddDayFragment : Fragment(), Injectable, View.OnClickListener {
     }
 
     fun navController() = findNavController()
+
+    private fun showFeelings(feelings: List<String>) {
+        feelings.forEach {
+            if (it.isNotEmpty())
+                changeFabColor(binding.root.findViewWithTag<FloatingActionButton>(it))
+        }
+    }
+
+    private fun changeFabColor(fab: FloatingActionButton) {
+        val secondary = ColorStateList.valueOf(ContextCompat.getColor(context!!, R.color.colorSecondaryDark))
+        val primary = ColorStateList.valueOf(ContextCompat.getColor(context!!, R.color.colorPrimaryDark))
+        fab.apply {
+            backgroundTintList = if (backgroundTintList!! == secondary) primary else secondary
+        }
+    }
 }
