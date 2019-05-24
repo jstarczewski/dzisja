@@ -18,7 +18,8 @@ class StatsViewModel @Inject constructor(private val daysRepository: DataSource)
         daysRepository.getAllDays().value!!.forEach {
             rawFeelings.addAll(it.feelings.split(","))
         }
-        _feelings.value = rawFeelings.groupingBy { it }.eachCount().toList()
+        val pairs = rawFeelings.groupingBy { it }.eachCount().toList()
+        _feelings.value = pairs.subList(0, pairs.size - 1)
     }
 
 }

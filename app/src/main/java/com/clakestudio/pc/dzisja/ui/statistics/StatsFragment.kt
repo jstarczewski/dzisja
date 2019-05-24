@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.clakestudio.pc.dzisja.R
 import com.clakestudio.pc.dzisja.data.Day
 import com.clakestudio.pc.dzisja.databinding.FragmentStatsBinding
 import com.clakestudio.pc.dzisja.di.Injectable
@@ -58,7 +60,7 @@ class StatsFragment : Fragment(), Injectable {
         pieChart.setExtraOffsets(5f, 10f, 5f, 5f)
         pieChart.dragDecelerationFrictionCoef = 0.95f
         pieChart.isDrawHoleEnabled = true
-        pieChart.setHoleColor(Color.BLACK)
+        pieChart.setHoleColor(ContextCompat.getColor(context!!, R.color.colorPrimaryLight))
         pieChart.transparentCircleRadius = 61f
     }
 
@@ -67,13 +69,12 @@ class StatsFragment : Fragment(), Injectable {
 
 
     private fun replaceData(data: List<PieEntry>) {
-        val pieDataSet = PieDataSet(data, "Feelings")
+        val pieDataSet = PieDataSet(data, "feeling")
         pieDataSet.sliceSpace = 3f
         pieDataSet.selectionShift = 5f
-        pieDataSet.colors = ColorTemplate.createColors(ColorTemplate.PASTEL_COLORS)
-
+        pieDataSet.colors = ColorTemplate.createColors(ColorTemplate.COLORFUL_COLORS)
         val pieData = PieData(pieDataSet)
-        pieData.setValueTextSize(10f)
+        pieData.setValueTextSize(12f)
         pieChart.data = pieData
     }
 

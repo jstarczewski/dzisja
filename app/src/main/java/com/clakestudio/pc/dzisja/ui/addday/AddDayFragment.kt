@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.clakestudio.pc.dzisja.R
+import com.clakestudio.pc.dzisja.data.Day
 import com.clakestudio.pc.dzisja.di.Injectable
 import com.clakestudio.pc.dzisja.util.OpenForTesting
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -23,21 +24,6 @@ import javax.inject.Inject
 
 @OpenForTesting
 class AddDayFragment : Fragment(), Injectable, View.OnClickListener {
-
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    override fun onClick(v: View?) {
-        when (v?.id) {
-            R.id.fab_add -> {
-                navController().popBackStack()
-                addViewModel.addDay(et_note.text.toString(), createFeelingsString())
-            }
-            else -> {
-                changeFabColor(v as FloatingActionButton)
-            }
-        }
-    }
-
-
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
@@ -58,12 +44,9 @@ class AddDayFragment : Fragment(), Injectable, View.OnClickListener {
         addViewModel = ViewModelProviders.of(this, viewModelFactory).get(AddDayViewModel::class.java).apply {
             init()
             day.observe(viewLifecycleOwner, Observer {
-                et_note.setText(it.note)
-                day_number.text = it.date
-                showFeelings(it.feelings.split(","))
+                showData(it)
             })
         }
-
         binding.fabAngry.setOnClickListener(this)
         binding.fabHappy.setOnClickListener(this)
         binding.fabSad.setOnClickListener(this)
@@ -71,25 +54,13 @@ class AddDayFragment : Fragment(), Injectable, View.OnClickListener {
         binding.fabOutline.setOnClickListener(this)
         fab_add.setOnClickListener(this)
         hideBottomNavigationBar()
-
     }
 
-    fun createFeelingsString(): String {
-        val secondary = ColorStateList.valueOf(ContextCompat.getColor(context!!, R.color.colorSecondaryDark))
-        var feelings = ""
-        listOf("happy", "sad", "angry", "neutral", "outline").forEach {
-            if (binding.root.findViewWithTag<FloatingActionButton>(it).backgroundTintList == secondary)
-                feelings = feelings.plus("$it,")
-        }
-        feelings =  feelings.substring(0, feelings.length - 1)
-        return feelings
+    private fun showData(day: Day) {
+        et_note.setText(day.note)
+        day_number.text = day.date
+        showFeelings(day.feelings.split(","))
     }
-
-    fun hideBottomNavigationBar() {
-        activity?.bottom_navigation?.visibility = View.GONE
-    }
-
-    fun navController() = findNavController()
 
     private fun showFeelings(feelings: List<String>) {
         feelings.forEach {
@@ -105,4 +76,36 @@ class AddDayFragment : Fragment(), Injectable, View.OnClickListener {
             backgroundTintList = if (backgroundTintList!! == secondary) primary else secondary
         }
     }
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.fab_add -> {
+                navController().popBackStack()
+                addViewModel.addDay(et_note.text.toString(), createFeelingsString())
+            }
+            else -> {
+                changeFabColor(v as FloatingActionButton)
+            }
+        }
+    }
+
+    fun createFeelingsString(): String {
+        val secondary = ColorStateList.valueOf(ContextCompat.getColor(context!!, R.color.colorSecondaryDark))
+        var feelings = ""
+        listOf("happy", "sad", "angry", "neutral", "outline").forEach {
+            if (binding.root.findViewWithTag<FloatingActionButton>(it).backgroundTintList == secondary)
+                feelings = feelings.plus("$it,")
+        }
+        feelings = feelings.substring(0, feelings.length - 1)
+        return feelings
+    }
+
+
+    fun navController() = findNavController()
+
+    fun hideBottomNavigationBar() {
+        activity?.bottom_navigation?.visibility = View.GONE
+    }
+
 }
