@@ -24,7 +24,9 @@ object FakeDaysRepository : DataSource {
     }
 
     override fun getDayByDate(date: String): LiveData<Day> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val data = MutableLiveData<Day>()
+        data.value = DataProvider.provideTestListOfDays().find { it.date == date }
+        return data
     }
 
 }
