@@ -11,10 +11,10 @@ import java.util.*
 import javax.inject.Inject
 
 class AddDayViewModel @Inject constructor(private val daysRepository: DataSource) : ViewModel() {
-    // TODO: Implement the ViewModel
 
     private val _day = MutableLiveData<Day>()
     val day: LiveData<Day> = _day
+
     private val date: String =
         SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(Calendar.getInstance().time)
 
@@ -22,11 +22,11 @@ class AddDayViewModel @Inject constructor(private val daysRepository: DataSource
         _day.value = daysRepository.getDayByDate(date).value
     }
 
-    fun addDay(note: String, feelings: String) {
-        val day = Day(_day.value!!.id, _day.value!!.date, note, feelings)
-        val mDay = MutableLiveData<Day>()
-        mDay.value = day
-        daysRepository.addDay(mDay)
-    }
+    fun addDay(note: String, feelings: String) =
+        MutableLiveData<Day>().apply {
+            value = Day(_day.value!!.id, _day.value!!.date, note, feelings)
+        }.let {
+            daysRepository.addDay(it)
+        }
 
 }

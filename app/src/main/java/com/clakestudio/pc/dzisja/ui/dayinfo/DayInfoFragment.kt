@@ -61,10 +61,6 @@ class DayInfoFragment : Fragment(), View.OnClickListener, Injectable {
 
     }
 
-    /**
-     * Min SDK will be changed
-     * */
-
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onClick(v: View?) {

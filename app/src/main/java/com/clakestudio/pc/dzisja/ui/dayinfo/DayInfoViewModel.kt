@@ -13,22 +13,27 @@ class DayInfoViewModel @Inject constructor(private val daysRepository: DataSourc
 
     private val _days = MutableLiveData<List<Day>>()
     val days: LiveData<List<Day>> = _days
+
     private val date: String =
         SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(Calendar.getInstance().time)
 
     fun init() {
-        addDayIfTodaysDayNotPresent(daysRepository.getAllDays().value!!)
+        addDayIfTodayNotPresent(daysRepository.getAllDays().value!!)
     }
 
-    private fun containsTodaysDay(days: List<Day>) = days.map { it.date }.contains(date)
+    private fun containsToday(days: List<Day>) = days.map { it.date }.contains(date)
 
-    fun addDayIfTodaysDayNotPresent(days: List<Day>) {
-        if (!containsTodaysDay(days)) {
-            val day = MutableLiveData<Day>()
-            day.value = Day("7", "24.05.2019", "Jak tam dzisiaj?", "happy")
-            daysRepository.addDay(day)
-        }
+    private fun addDayIfTodayNotPresent(days: List<Day>) {
+        if (!containsToday(days))
+            addToday()
         _days.value = daysRepository.getAllDays().value?.reversed()
     }
+
+    private fun addToday() =
+        MutableLiveData<Day>().apply {
+            value = Day("7", "24.05.2019", "Jak tam dzisiaj?", "")
+        }.let {
+            daysRepository.addDay(it)
+        }
 
 }

@@ -29,7 +29,7 @@ class AddDayFragment : Fragment(), Injectable, View.OnClickListener {
         when (v?.id) {
             R.id.fab_add -> {
                 navController().popBackStack()
-                addViewModel.addDay(et_note.text.toString(), createFeelingsStringFromFabs())
+                addViewModel.addDay(et_note.text.toString(), createFeelingsString())
             }
             else -> {
                 changeFabColor(v as FloatingActionButton)
@@ -74,23 +74,14 @@ class AddDayFragment : Fragment(), Injectable, View.OnClickListener {
 
     }
 
-    private fun createFeelingsStringFromFabs(): String {
-        var feelings = ""
-        val fabs = listOf<FloatingActionButton>(
-            binding.fabAngry,
-            binding.fabHappy,
-            binding.fabNeutral,
-            binding.fabOutline,
-            binding.fabSad
-        )
-
+    fun createFeelingsString(): String {
         val secondary = ColorStateList.valueOf(ContextCompat.getColor(context!!, R.color.colorSecondaryDark))
-        fabs.forEach {
-
-            if (it.backgroundTintList == secondary)
-                feelings = feelings + it.tag + ","
+        var feelings = ""
+        listOf("happy", "sad", "angry", "neutral", "outline").forEach {
+            if (binding.root.findViewWithTag<FloatingActionButton>(it).backgroundTintList == secondary)
+                feelings = feelings.plus("$it,")
         }
-        feelings.substring(0, feelings.length - 3)
+        feelings =  feelings.substring(0, feelings.length - 1)
         return feelings
     }
 
@@ -103,7 +94,7 @@ class AddDayFragment : Fragment(), Injectable, View.OnClickListener {
     private fun showFeelings(feelings: List<String>) {
         feelings.forEach {
             if (it.isNotEmpty())
-                changeFabColor(binding.root.findViewWithTag<FloatingActionButton>(it))
+                changeFabColor(binding.root.findViewWithTag(it))
         }
     }
 
