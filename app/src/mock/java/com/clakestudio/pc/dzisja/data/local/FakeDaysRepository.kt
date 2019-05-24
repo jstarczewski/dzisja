@@ -20,7 +20,7 @@ object FakeDaysRepository : DataSource {
     }
 
     override fun addDay(day: LiveData<Day>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        DataProvider.addDay(day.value!!)
     }
 
     override fun getDayByDate(date: String): LiveData<Day> {

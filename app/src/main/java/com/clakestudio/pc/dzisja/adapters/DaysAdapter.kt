@@ -24,9 +24,9 @@ class DaysAdapter(
         //private val fabs: List<FloatingActionButton> =
         //    listOf(binding.fabAngry, binding.fabHappy, binding.fabNeutral, binding.fabSad, binding.fabOutline)
 
-        fun bind(textDayInfo: String, textDay: String, emojis: List<String>) {
-            binding.tvDay.text = textDay
-            binding.tvDayInfo.text = textDayInfo
+        fun bind(date: String, note: String, emojis: List<String>) {
+            binding.tvDay.text = date
+            binding.tvDayInfo.text = note
             emojis.forEach {
                 changeFabColor(binding.root.findViewWithTag(it))
             }
