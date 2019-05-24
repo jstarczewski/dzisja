@@ -29,7 +29,8 @@ class DaysAdapter(
             binding.tvDay.text = date
             binding.tvDayInfo.text = note
             emojis.forEach {
-                changeFabColor(binding.root.findViewWithTag(it))
+                if (it.isNotEmpty())
+                    changeFabColor(binding.root.findViewWithTag(it))
             }
         }
 
