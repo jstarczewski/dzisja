@@ -2,12 +2,12 @@ package com.clakestudio.pc.dzisja.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.clakestudio.pc.dzisja.ui.main.addday.AddDayViewModel
+import com.clakestudio.pc.dzisja.ui.addday.AddDayViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
-import com.clakestudio.pc.dzisja.ui.main.dayinfo.DayInfoViewModel
-import com.clakestudio.pc.dzisja.ui.main.statistics.StatsViewModel
+import com.clakestudio.pc.dzisja.ui.dayinfo.DayInfoViewModel
+import com.clakestudio.pc.dzisja.ui.statistics.StatsViewModel
 import com.clakestudio.pc.dzisja.viewmodel.DzisjaViewModelFactory
 
 @Module
