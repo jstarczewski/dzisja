@@ -10,6 +10,7 @@ import com.clakestudio.pc.dzisja.R
 import com.clakestudio.pc.dzisja.data.Day
 import com.clakestudio.pc.dzisja.databinding.DayBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlin.collections.ArrayList
 
 class DaysAdapter(
     private var days: ArrayList<Day>,
@@ -45,11 +46,13 @@ class DaysAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DaysViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = DayBinding.inflate(inflater, parent, false)
+        val daysViewHolder = DaysViewHolder(binding)
         binding.root.setOnClickListener {
-            onDayClickCallback.invoke()
+            if (daysViewHolder.adapterPosition == 0)
+                onDayClickCallback.invoke()
         }
         context = parent.context
-        return DaysViewHolder(binding)
+        return daysViewHolder
     }
 
     override fun getItemCount(): Int = days.size
