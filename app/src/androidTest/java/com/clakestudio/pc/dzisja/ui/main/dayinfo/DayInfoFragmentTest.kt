@@ -8,6 +8,7 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.rule.ActivityTestRule
 import com.clakestudio.pc.dzisja.R
+import com.clakestudio.pc.dzisja.ui.dayinfo.DayInfoFragment
 import com.clakestudio.pc.dzisja.util.SingleFragmentActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import junit.framework.Assert.assertEquals

@@ -6,7 +6,7 @@
 	app:startDestination="@id/dayInfoFragment">
 	<fragment
 		android:id="@+id/dayInfoFragment"
-		android:name="com.clakestudio.pc.dzisja.ui.main.dayinfo.DayInfoFragment"
+		android:name="com.clakestudio.pc.dzisja.ui.dayinfo.DayInfoFragment"
 		android:label="DayInfoFragment">
 		<action
 			android:id="@+id/action_dayInfoFragment_to_addDayFragment"
@@ -17,7 +17,7 @@
 	</fragment>
 	<fragment
 		android:id="@+id/addDayFragment"
-		android:name="com.clakestudio.pc.dzisja.ui.main.addday.AddDayFragment"
+		android:name="com.clakestudio.pc.dzisja.ui.addday.AddDayFragment"
 		android:label="AddDayFragment">
 		<action
 			android:id="@+id/action_addDayFragment_to_dayInfoFragment"
@@ -26,7 +26,7 @@
 	</fragment>
 	<fragment
 		android:id="@+id/statsFragment"
-		android:name="com.clakestudio.pc.dzisja.ui.main.statistics.StatsFragment"
+		android:name="com.clakestudio.pc.dzisja.ui.statistics.StatsFragment"
 		android:label="StatsFragment" >
 		<action
 			android:id="@+id/action_statsFragment_to_dayInfoFragment"

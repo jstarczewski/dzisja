@@ -87,30 +87,18 @@
 				android:layout_width="match_parent"
 				android:layout_height="match_parent">
 				
-				<TextView
-					android:id="@+id/tv_greeting"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:padding="8dp"
-					android:text="Jak sie dzisiaj czujesz?"
-					android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-					app:layout_constraintBottom_toTopOf="@id/fab_angry"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toTopOf="parent"
-					app:layout_constraintVertical_bias="0.0"
-					app:layout_constraintVertical_chainStyle="packed"
-					tools:text="Jak sie dzisiaj czujesz?" />
-				
-				
 				<com.google.android.material.floatingactionbutton.FloatingActionButton
 					android:id="@+id/fab_angry"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_margin="16dp"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="16dp"
+					android:layout_marginBottom="16dp"
+					android:tag="angry"
 					app:borderWidth="0dp"
 					app:fabSize="mini"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@id/tv_greeting"
+					app:layout_constraintTop_toTopOf="parent"
 					app:srcCompat="@drawable/emoticon_angry_outline" />
 				
 				<com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -118,6 +106,7 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:background="@drawable/circle"
+					android:tag="happy"
 					app:borderWidth="0dp"
 					app:fabSize="mini"
 					app:layout_constraintBottom_toBottomOf="@id/fab_angry"
@@ -130,6 +119,7 @@
 					android:id="@+id/fab_neutral"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:tag="neutral"
 					app:borderWidth="0dp"
 					app:fabSize="mini"
 					app:layout_constraintBottom_toBottomOf="@id/fab_happy"
@@ -143,6 +133,7 @@
 					android:id="@+id/fab_sad"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:tag="sad"
 					app:borderWidth="0dp"
 					app:fabSize="mini"
 					app:layout_constraintBottom_toBottomOf="@id/fab_neutral"
@@ -155,6 +146,7 @@
 					android:id="@+id/fab_outline"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:tag="outline"
 					app:borderWidth="0dp"
 					app:fabSize="mini"
 					app:layout_constraintBottom_toBottomOf="@id/fab_sad"
@@ -179,7 +171,7 @@
 					tools:text="Dzień 1" />
 				
 				<EditText
-					android:id="@+id/tv_noet"
+					android:id="@+id/et_note"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="16dp"

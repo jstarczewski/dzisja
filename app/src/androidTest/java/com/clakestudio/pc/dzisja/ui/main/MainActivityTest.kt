@@ -6,8 +6,8 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import com.clakestudio.pc.dzisja.R
+import com.clakestudio.pc.dzisja.ui.MainActivity
 import org.hamcrest.CoreMatchers.not
-import org.junit.Assert.fail
 import org.junit.Rule
 import org.junit.Test
 
